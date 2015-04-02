@@ -9,33 +9,31 @@
 #import "HousingPlanView.h"
 
 static NSString * BEDROOM_BACKGROUND = @"HousingPlanBedroomBackground";
-static NSString * BEDROOM_ICON_STATE_NORMAL = @"HousingPlanBedroomStateNormal";
-static NSString * BEDROOM_ICON_STATE_HIGHLIGHT = @"HousingPlanBedroomStateHighlight";
+static NSString * BEDROOM_BACKGROUND_HIGHLIGHT = @"HousingPlanBedroomBackgroundHighlight";
 
 static NSString * BATHROOM_BACKGROUND = @"HousingPlanBathroomBackground";
-static NSString * BATHROOM_ICON_STATE_NORMAL = @"HousingPlanBathroomStateNormal";
-static NSString * BATHROOM_ICON_STATE_HIGHLIGHT = @"HousingPlanBathroomStateHighlight";
+static NSString * BATHROOM_BACKGROUND_HIGHLIGHT = @"HousingPlanBathroomBackgroundHighlight";
 
 static NSString * LIVINGROOM_BACKGROUND = @"HousingPlanLivingroomBackground";
-static NSString * LIVINGROOM_ICON_STATE_NORMAL = @"HousingPlanLivingroomStateNormal";
-static NSString * LIVINGROOM_ICON_STATE_HIGHLIGHT = @"HousingPlanLivingroomStateHighlight";
+static NSString * LIVINGROOM_BACKGROUND_HIGHLIGHT = @"HousingPlanLivingroomBackgroundHighlight";
 
 static NSString * KITCHEN_AND_DINING_ROOM_BACKGROUND = @"HousingPlanKitchenAndDiningRoomBackground";
-static NSString * KITCHEN_AND_DINING_ROOM_ICON_STATE_NORMAL = @"HousingPlanKitchenAndDiningRoomStateNormal";
-static NSString * KITCHEN_AND_DINING_ROOM_ICON_STATE_HIGHLIGHT = @"HousingPlanKitchenAndDiningRoomStateHighlight";
-
-static NSString * NETWORK_AND_COMMUNICATION_BACKGROUND = @"HousingPlanNetworkAndCommunicationBackground";
-static NSString * NETWORK_AND_COMMUNICATION_ICON_STATE_NORMAL = @"HousingPlanNetworkAndCommunicationStateNormal";
-static NSString * NETWORK_AND_COMMUNICATION_ICON_STATE_HIGHLIGHT = @"HousingPlanNetworkAndCommunicationStateHighlight";
+static NSString * KITCHEN_AND_DINING_ROOM_BACKGROUND_HIGHLIGHT = @"HousingPlanKitchenAndDiningRoomBackgroundHighlight";
 
 static NSString * OTHERS_BACKGROUND = @"HousingPlanOthersBackground";
-static NSString * OTHERS_ICON_STATE_NORMAL = @"HousingPlanOthersStateNormal";
-static NSString * OTHERS_ICON_STATE_HIGHLIGHT = @"HousingPlanOthersStateHighlight";
+static NSString * OTHERS_BACKGROUND_HIGHLIGHT = @"HousingPlanOthersBackgroundHighlight";
 
 @interface HousingPlanView()
 
 @property (nonatomic, assign) CGFloat viewWitdh;  // the width of the view when instantiate
 @property (nonatomic, assign) CGFloat viewHeight;  //the height of the view when instantiate
+
+//these are the button for each of the bucket items
+@property (nonatomic, strong) UIButton *livingRoomButton;
+@property (nonatomic, strong) UIButton *bedroomButton;
+@property (nonatomic, strong) UIButton *bathroomButton;
+@property (nonatomic, strong) UIButton *kitchenAndDiningRoomButton;
+@property (nonatomic, strong) UIButton *othersButton;
 
 @end
 
@@ -78,15 +76,6 @@ static NSString * OTHERS_ICON_STATE_HIGHLIGHT = @"HousingPlanOthersStateHighligh
 }
 
 /**
- * Get the frame for the network and communication button
- * @return CGRect
- */
--(CGRect)getNetworkAndCommunicationButtonFrame {
-    //TODO return the correct frame
-    return CGRectZero;
-}
-
-/**
  * Get the frame for the others button
  * @return CGRect
  */
@@ -104,8 +93,7 @@ static NSString * OTHERS_ICON_STATE_HIGHLIGHT = @"HousingPlanOthersStateHighligh
     if (_livingRoomButton == nil) {
         _livingRoomButton = [[UIButton alloc] initWithFrame:[self getLivingRoomButtonFrame]];
         [_livingRoomButton setBackgroundImage:[UIImage imageNamed:LIVINGROOM_BACKGROUND] forState:UIControlStateNormal];
-        [_livingRoomButton setImage:[UIImage imageNamed:LIVINGROOM_ICON_STATE_NORMAL] forState:UIControlStateNormal];
-        [_livingRoomButton setImage:[UIImage imageNamed:LIVINGROOM_ICON_STATE_HIGHLIGHT] forState:UIControlStateHighlighted];
+        [_livingRoomButton setBackgroundImage:[UIImage imageNamed:LIVINGROOM_BACKGROUND_HIGHLIGHT] forState:UIControlStateHighlighted];
         
         [_livingRoomButton addTarget:self action:@selector(livingRoomButtonPressed) forControlEvents:UIControlEventTouchUpInside];
     }
@@ -120,8 +108,7 @@ static NSString * OTHERS_ICON_STATE_HIGHLIGHT = @"HousingPlanOthersStateHighligh
     if (_bedroomButton == nil) {
         _bedroomButton = [[UIButton alloc] initWithFrame:[self getBedroomButtonFrame]];
         [_bedroomButton setBackgroundImage:[UIImage imageNamed:BEDROOM_BACKGROUND] forState:UIControlStateNormal];
-        [_bedroomButton setImage:[UIImage imageNamed:BEDROOM_ICON_STATE_NORMAL] forState:UIControlStateNormal];
-        [_bedroomButton setImage:[UIImage imageNamed:BEDROOM_ICON_STATE_HIGHLIGHT] forState:UIControlStateHighlighted];
+        [_bedroomButton setBackgroundImage:[UIImage imageNamed:BEDROOM_BACKGROUND_HIGHLIGHT] forState:UIControlStateHighlighted];
         
         [_bedroomButton addTarget:self action:@selector(bedroomButtonPressed) forControlEvents:UIControlEventTouchUpInside];
     }
@@ -136,8 +123,7 @@ static NSString * OTHERS_ICON_STATE_HIGHLIGHT = @"HousingPlanOthersStateHighligh
     if (_bathroomButton == nil) {
         _bathroomButton = [[UIButton alloc] initWithFrame:[self getBathroomButtonFrame]];
         [_bathroomButton setBackgroundImage:[UIImage imageNamed:BATHROOM_BACKGROUND] forState:UIControlStateNormal];
-        [_bathroomButton setImage:[UIImage imageNamed:BATHROOM_ICON_STATE_NORMAL] forState:UIControlStateNormal];
-        [_bathroomButton setImage:[UIImage imageNamed:BATHROOM_ICON_STATE_HIGHLIGHT] forState:UIControlStateHighlighted];
+        [_bathroomButton setBackgroundImage:[UIImage imageNamed:BATHROOM_BACKGROUND_HIGHLIGHT] forState:UIControlStateHighlighted];
         
         [_bathroomButton addTarget:self action:@selector(bathroomButtonPressed) forControlEvents:UIControlEventTouchUpInside];
     }
@@ -152,28 +138,11 @@ static NSString * OTHERS_ICON_STATE_HIGHLIGHT = @"HousingPlanOthersStateHighligh
     if (_kitchenAndDiningRoomButton == nil) {
         _kitchenAndDiningRoomButton = [[UIButton alloc] initWithFrame:[self getKitchenAndDiningRoomButtomFrame]];
         [_kitchenAndDiningRoomButton setBackgroundImage:[UIImage imageNamed:KITCHEN_AND_DINING_ROOM_BACKGROUND] forState:UIControlStateNormal];
-        [_kitchenAndDiningRoomButton setImage:[UIImage imageNamed:KITCHEN_AND_DINING_ROOM_ICON_STATE_NORMAL] forState:UIControlStateNormal];
-        [_kitchenAndDiningRoomButton setImage:[UIImage imageNamed:KITCHEN_AND_DINING_ROOM_ICON_STATE_HIGHLIGHT] forState:UIControlStateHighlighted];
+        [_kitchenAndDiningRoomButton setBackgroundImage:[UIImage imageNamed:KITCHEN_AND_DINING_ROOM_BACKGROUND_HIGHLIGHT] forState:UIControlStateHighlighted];
         
         [_kitchenAndDiningRoomButton addTarget:self action:@selector(kitchenAndDiningRoomButtonPressed) forControlEvents:UIControlEventTouchUpInside];
     }
     return _kitchenAndDiningRoomButton;
-}
-
-/**
- * Lazily init the communication button
- * @return communication button
- */
--(UIButton *)communicationButton {
-    if (_communicationButton == nil) {
-        _communicationButton = [[UIButton alloc] initWithFrame:[self getNetworkAndCommunicationButtonFrame]];
-        [_communicationButton setBackgroundImage:[UIImage imageNamed:NETWORK_AND_COMMUNICATION_BACKGROUND] forState:UIControlStateNormal];
-        [_communicationButton setImage:[UIImage imageNamed:NETWORK_AND_COMMUNICATION_ICON_STATE_NORMAL] forState:UIControlStateNormal];
-        [_communicationButton setImage:[UIImage imageNamed:NETWORK_AND_COMMUNICATION_ICON_STATE_HIGHLIGHT] forState:UIControlStateHighlighted];
-        
-        [_communicationButton addTarget:self action:@selector(networkAndCommunicationButtonPressed) forControlEvents:UIControlEventTouchUpInside];
-    }
-    return _communicationButton;
 }
 
 /**
@@ -184,8 +153,7 @@ static NSString * OTHERS_ICON_STATE_HIGHLIGHT = @"HousingPlanOthersStateHighligh
     if (_othersButton == nil) {
         _othersButton = [[UIButton alloc] initWithFrame:[self getOtherButtonFrame]];
         [_othersButton setBackgroundImage:[UIImage imageNamed:OTHERS_BACKGROUND] forState:UIControlStateNormal];
-        [_othersButton setImage:[UIImage imageNamed:OTHERS_ICON_STATE_NORMAL] forState:UIControlStateNormal];
-        [_othersButton setImage:[UIImage imageNamed:OTHERS_ICON_STATE_HIGHLIGHT] forState:UIControlStateHighlighted];
+        [_othersButton setBackgroundImage:[UIImage imageNamed:OTHERS_BACKGROUND_HIGHLIGHT] forState:UIControlStateHighlighted];
         
         [_othersButton addTarget:self action:@selector(othersButtonPressed) forControlEvents:UIControlEventTouchUpInside];
     }
@@ -222,13 +190,6 @@ static NSString * OTHERS_ICON_STATE_HIGHLIGHT = @"HousingPlanOthersStateHighligh
 }
 
 /**
- * Call the delegate to handle the action when the network and communication button is pressed
- */
--(void)networkAndCommunicationButtonPressed {
-    [self.planDelegate onNetworkAndCommunicationItemClick];
-}
-
-/**
  * call the delegate to handle the action when the others button is pressed
  */
 -(void)othersButtonPressed {
@@ -250,7 +211,6 @@ static NSString * OTHERS_ICON_STATE_HIGHLIGHT = @"HousingPlanOthersStateHighligh
         [self addSubview:[self bedroomButton]];
         [self addSubview:[self bathroomButton]];
         [self addSubview:[self kitchenAndDiningRoomButton]];
-        [self addSubview:[self communicationButton]];
         [self addSubview:[self othersButton]];
     }
     return self;
