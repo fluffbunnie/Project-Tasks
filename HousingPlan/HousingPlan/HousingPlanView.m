@@ -44,7 +44,7 @@ static NSString * OTHERS_BACKGROUND_HIGHLIGHT = @"HousingPlanOthersBackgroundHig
  * @return CGRect
  */
 -(CGRect)getLivingRoomButtonFrame {
-    //TODO return the correct frame for the living room button
+    //TODO return the correct frame
     return CGRectZero;
 }
 
@@ -58,19 +58,19 @@ static NSString * OTHERS_BACKGROUND_HIGHLIGHT = @"HousingPlanOthersBackgroundHig
 }
 
 /**
- * Get the frame for the bathroom
+ * Get the frame for the kitchen and dining room
  * @return CGRect
  */
--(CGRect)getBathroomButtonFrame {
+-(CGRect)getKitchenAndDiningRoomButtomFrame {
     //TODO return the correct frame
     return CGRectZero;
 }
 
 /**
- * Get the frame for the kitchen and dining room
+ * Get the frame for the bathroom
  * @return CGRect
  */
--(CGRect)getKitchenAndDiningRoomButtomFrame {
+-(CGRect)getBathroomButtonFrame {
     //TODO return the correct frame
     return CGRectZero;
 }
