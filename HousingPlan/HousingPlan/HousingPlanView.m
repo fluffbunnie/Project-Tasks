@@ -298,9 +298,7 @@ static NSString * OTHERS_BACKGROUND_HIGHLIGHT = @"HousingPlanOthersBackgroundHig
  */
 -(id)init {
     float screenWidth = [[UIScreen mainScreen] bounds].size.width;
-    float screenHeight = [[UIScreen mainScreen] bounds].size.height;
-
-    return [self initWithFrame:CGRectMake(0, 0, screenWidth, screenHeight)];
+    return [self initWithFrame:CGRectMake(20, 80, screenWidth - 40, FRAME_SCALE_RATIO * (screenWidth - 40))];
 }
 
 @end

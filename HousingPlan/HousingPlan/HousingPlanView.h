@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
+#define FRAME_SCALE_RATIO 65.0/67.0
+
 @protocol HousingPlanViewDelegate <NSObject>
 
 // There are essentially 5 items in the housing plan, namely:

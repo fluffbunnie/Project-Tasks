@@ -9,16 +9,15 @@
 #import "ViewController.h"
 #import "HousingPlanView.h"
 
-@interface ViewController ()
-
-@end
-
 @implementation ViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self.view addSubview:[[HousingPlanView alloc] init]];
 }
+
+
+
 
 
 @end
