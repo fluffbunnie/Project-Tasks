@@ -45,7 +45,16 @@ static NSString * OTHERS_BACKGROUND_HIGHLIGHT = @"HousingPlanOthersBackgroundHig
  */
 -(CGRect)getLivingRoomButtonFrame {
     //TODO return the correct frame
-    return CGRectZero;
+    UIImage * livingRoomImage = [UIImage imageNamed:LIVINGROOM_BACKGROUND];
+    
+    CGFloat imageWidth  = livingRoomImage.size.width;
+    CGFloat imageHeight = livingRoomImage.size.height;
+    
+    CGFloat x = (self.viewWitdh - imageWidth) / 2;
+    
+    CGRect livingRoomButtonFrame = CGRectMake(x, 0, imageWidth, imageHeight);
+    
+    return livingRoomButtonFrame;
 }
 
 /**
@@ -54,7 +63,22 @@ static NSString * OTHERS_BACKGROUND_HIGHLIGHT = @"HousingPlanOthersBackgroundHig
  */
 -(CGRect)getBedroomButtonFrame {
     //TODO return the correct frame
-    return CGRectZero;
+    UIImage * bedroomImage = [UIImage imageNamed:BEDROOM_BACKGROUND];
+
+    UIImage * rightImage = [UIImage imageNamed:BATHROOM_BACKGROUND];
+    UIImage * topImage   = [UIImage imageNamed:LIVINGROOM_BACKGROUND];
+    
+    CGFloat bedroomImageWidth  = bedroomImage.size.width;
+    CGFloat bedroomImageHeight = bedroomImage.size.height;
+    
+    CGFloat rightImageWidth = rightImage.size.width;
+    CGFloat topImageHeight  = topImage.size.height;
+    
+    CGFloat x = (self.viewWitdh - (bedroomImageWidth + rightImageWidth)) / 2;
+
+    CGRect bedroomButtonFrame = CGRectMake(x, topImageHeight, bedroomImageWidth, bedroomImageHeight);
+    
+    return bedroomButtonFrame;
 }
 
 /**
@@ -63,7 +87,24 @@ static NSString * OTHERS_BACKGROUND_HIGHLIGHT = @"HousingPlanOthersBackgroundHig
  */
 -(CGRect)getKitchenAndDiningRoomButtomFrame {
     //TODO return the correct frame
-    return CGRectZero;
+    UIImage * kitchenImage = [UIImage imageNamed:KITCHEN_AND_DINING_ROOM_BACKGROUND];
+
+    UIImage * leftImage  = [UIImage imageNamed:BEDROOM_BACKGROUND];
+    UIImage * rightImage = [UIImage imageNamed:BATHROOM_BACKGROUND];
+    UIImage * topImage   = [UIImage imageNamed:LIVINGROOM_BACKGROUND];
+    
+    CGFloat kitchenImageWidth  = kitchenImage.size.width;
+    CGFloat kitchenImageHeight = kitchenImage.size.height;
+    
+    CGFloat leftImageWidth  = leftImage.size.width;
+    CGFloat rightImageWidth = rightImage.size.width;
+    CGFloat topImageHeight  = topImage.size.height;
+    
+    CGFloat x = (self.viewWitdh - (leftImageWidth + rightImageWidth)) / 2 + leftImageWidth;
+    
+    CGRect kitchenButtonFrame = CGRectMake(x, topImageHeight, kitchenImageWidth, kitchenImageHeight);
+    
+    return kitchenButtonFrame;
 }
 
 /**
@@ -72,7 +113,25 @@ static NSString * OTHERS_BACKGROUND_HIGHLIGHT = @"HousingPlanOthersBackgroundHig
  */
 -(CGRect)getBathroomButtonFrame {
     //TODO return the correct frame
-    return CGRectZero;
+    UIImage * bathroomImage = [UIImage imageNamed:BATHROOM_BACKGROUND];
+
+    UIImage * topImage1 = [UIImage imageNamed:KITCHEN_AND_DINING_ROOM_BACKGROUND];
+    UIImage * topImage2 = [UIImage imageNamed:LIVINGROOM_BACKGROUND];
+    UIImage * leftImage = [UIImage imageNamed:BEDROOM_BACKGROUND];
+
+    CGFloat leftImageWidth  = leftImage.size.width;
+    CGFloat topImage1Height = topImage1.size.height;
+    CGFloat topImage2Height = topImage2.size.height;
+    CGFloat topImagesHeight = topImage1Height + topImage2Height;
+    
+    CGFloat bathroomImageWidth  = bathroomImage.size.width;
+    CGFloat bathroomImageHeight = bathroomImage.size.height;
+    
+    CGFloat x = (self.viewWitdh - (leftImageWidth + bathroomImageWidth)) / 2 + leftImageWidth;
+    
+    CGRect kitchenButtonFrame = CGRectMake(x, topImagesHeight, bathroomImageWidth, bathroomImageHeight);
+    
+    return kitchenButtonFrame;
 }
 
 /**
@@ -81,7 +140,22 @@ static NSString * OTHERS_BACKGROUND_HIGHLIGHT = @"HousingPlanOthersBackgroundHig
  */
 -(CGRect)getOtherButtonFrame {
     //TODO return the correct frame
-    return CGRectZero;
+    UIImage * othersImage = [UIImage imageNamed:OTHERS_BACKGROUND];
+    UIImage * topImage1 = [UIImage imageNamed:BEDROOM_BACKGROUND];
+    UIImage * topImage2 = [UIImage imageNamed:LIVINGROOM_BACKGROUND];
+
+    CGFloat othersImageWidth  = othersImage.size.width;
+    CGFloat othersImageHeight = othersImage.size.height;
+    
+    CGFloat topImage1Height = topImage1.size.height;
+    CGFloat topImage2Height = topImage2.size.height;
+    CGFloat topImagesHeight = topImage1Height + topImage2Height;
+    
+    CGFloat x = (self.viewWitdh - othersImageWidth) / 2;
+    
+    CGRect othersButtonFrame = CGRectMake(x, topImagesHeight, othersImageWidth, othersImageHeight);
+    
+    return othersButtonFrame;
 }
 
 #pragma mark - instantiation
@@ -95,6 +169,7 @@ static NSString * OTHERS_BACKGROUND_HIGHLIGHT = @"HousingPlanOthersBackgroundHig
         [_livingRoomButton setBackgroundImage:[UIImage imageNamed:LIVINGROOM_BACKGROUND] forState:UIControlStateNormal];
         [_livingRoomButton setBackgroundImage:[UIImage imageNamed:LIVINGROOM_BACKGROUND_HIGHLIGHT] forState:UIControlStateHighlighted];
         
+
         [_livingRoomButton addTarget:self action:@selector(livingRoomButtonPressed) forControlEvents:UIControlEventTouchUpInside];
     }
     return _livingRoomButton;
@@ -156,6 +231,8 @@ static NSString * OTHERS_BACKGROUND_HIGHLIGHT = @"HousingPlanOthersBackgroundHig
         [_othersButton setBackgroundImage:[UIImage imageNamed:OTHERS_BACKGROUND_HIGHLIGHT] forState:UIControlStateHighlighted];
         
         [_othersButton addTarget:self action:@selector(othersButtonPressed) forControlEvents:UIControlEventTouchUpInside];
+        
+        _othersButton.imageView.contentMode = UIViewContentModeScaleAspectFill;
     }
     return _othersButton;
 }
@@ -222,6 +299,7 @@ static NSString * OTHERS_BACKGROUND_HIGHLIGHT = @"HousingPlanOthersBackgroundHig
 -(id)init {
     float screenWidth = [[UIScreen mainScreen] bounds].size.width;
     float screenHeight = [[UIScreen mainScreen] bounds].size.height;
+
     return [self initWithFrame:CGRectMake(0, 0, screenWidth, screenHeight)];
 }
 
