@@ -283,6 +283,7 @@ static NSString * OTHERS_BACKGROUND_HIGHLIGHT = @"HousingPlanOthersBackgroundHig
     if (self) {
         self.viewWitdh = CGRectGetWidth(frame);
         self.viewHeight = CGRectGetHeight(frame);
+        self.clipsToBounds = YES;
         
         [self addSubview:[self livingRoomButton]];
         [self addSubview:[self bedroomButton]];
