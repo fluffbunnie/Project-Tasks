@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>AD95DCB7-46D1-429D-836E-FCDDAFFDFC90</string>
+	<key>IDESourceControlProjectName</key>
+	<string>Magpie</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>BD2EEF217DECDA9A6C4D9FF54C8EE51367127955</key>
+		<string>https://github.com/minhthao/Magpie.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>Magpie/Magpie.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>BD2EEF217DECDA9A6C4D9FF54C8EE51367127955</key>
+		<string>../../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/minhthao/Magpie.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>BD2EEF217DECDA9A6C4D9FF54C8EE51367127955</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>BD2EEF217DECDA9A6C4D9FF54C8EE51367127955</string>
+			<key>IDESourceControlWCCName</key>
+			<string>Magpie</string>
+		</dict>
+	</array>
+</dict>
+</plist>
