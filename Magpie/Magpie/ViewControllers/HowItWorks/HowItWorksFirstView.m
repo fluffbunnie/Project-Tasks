@@ -30,6 +30,8 @@ static NSString * SECOND_INTRODUCE_LINE_TEXT = @"She hosted some cool travelers 
 
 static NSString * FONTNAME = @"AvenirNext-Medium";
 
+static NSString * IMAGE_ANIMATION = @"airplane.png"; //@"carmodel.png"
+
 @interface HowItWorksFirstView()
 
 @property (nonatomic, assign) CGFloat viewWidth;
@@ -481,7 +483,7 @@ static NSString * FONTNAME = @"AvenirNext-Medium";
         //    car.bounds = CGRectMake(0, 0, 80, 80);
         car.bounds =CGRectMake(0, 0, 44.0, 20.0);
         car.position = CGPointMake(-_viewWidth, -_viewHeight);
-        car.contents = (id)([UIImage imageNamed:@"carmodel.png"].CGImage);
+        car.contents = (id)([UIImage imageNamed:IMAGE_ANIMATION].CGImage);
         //    car.contents = (id)([UIImage imageNamed:@"plane-b.png"].CGImage);
         [self.layer addSublayer:car];
         
@@ -518,12 +520,10 @@ static NSString * FONTNAME = @"AvenirNext-Medium";
         CGPathRelease(curvedPath);
 //    }completion:^(BOOL finished) {
     
-    
     [UIView animateWithDuration:1.8f delay:0.0f options:UIViewAnimationOptionCurveEaseInOut animations:^{
         _doorImage.alpha = 0;
         _stick.alpha = 0;
     }completion:^(BOOL finished) {
-
         [_howItWorksViewDelegate gotoNextPage];
         [car removeAllAnimations];
         [car removeFromSuperlayer];
@@ -610,10 +610,7 @@ static NSString * FONTNAME = @"AvenirNext-Medium";
     [self.valueIntroMagpieText1.layer removeAllAnimations];
     [self.valueIntroMagpieText2.layer removeAllAnimations];
     
-//    for (CAShapeLayer *subLayer in self.layer.sublayers) {
-//        [subLayer removeAllAnimations];
-//        [subLayer removeFromSuperlayer];
-//    }
+
 }
 
 

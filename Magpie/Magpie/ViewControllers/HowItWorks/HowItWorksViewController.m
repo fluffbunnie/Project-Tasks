@@ -56,7 +56,8 @@ static int const TOTAL_NUMBER_PAGES = 3;
         _contentScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, screenWidth, screenHeight)];
         _contentScrollView.backgroundColor = [UIColor blackColor];
         _contentScrollView.contentSize = CGSizeMake(TOTAL_NUMBER_PAGES * screenWidth, screenHeight);
-        _contentScrollView.pagingEnabled = NO;
+        _contentScrollView.pagingEnabled = YES;
+        _contentScrollView.scrollEnabled = NO;
         _contentScrollView.showsVerticalScrollIndicator = NO;
         _contentScrollView.showsHorizontalScrollIndicator = NO;
         _contentScrollView.bounces = NO;
@@ -228,16 +229,6 @@ static int const TOTAL_NUMBER_PAGES = 3;
 
 #pragma mark - scroll view delegate
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
-    if (scrollView.contentOffset.y != 0) {
-        CGPoint offset = scrollView.contentOffset;
-        offset.y = 0;
-        scrollView.contentOffset = offset;
-    }
-    if (scrollView.contentOffset.x != 0) {
-        CGPoint offset = scrollView.contentOffset;
-        offset.x = 0;
-        scrollView.contentOffset = offset;
-    }
 //    self.pageControl.currentPage = [self getCurrentPage];
 }
 

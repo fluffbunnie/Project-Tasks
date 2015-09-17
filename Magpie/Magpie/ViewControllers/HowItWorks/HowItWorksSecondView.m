@@ -18,7 +18,7 @@ static NSString * VALUE_BACKGROUND_SCREEN = @"Background_Screen_2";
 static NSString * VALUE_SANFRANCISCO = @"San_Francisco";
 static NSString * VALUE_BOARD_IMAGE = @"board";
 static NSString * VALUE_LABEL_IMAGE = @"Feburary_2015_label";
-
+static NSString * ANIMATION_IMAGE = @"airplane.png"; //@"carmodel.png"
 
 @interface HowItWorksSecondView()
 @property (nonatomic, assign) CGFloat viewWidth;
@@ -176,7 +176,7 @@ static NSString * VALUE_LABEL_IMAGE = @"Feburary_2015_label";
     _car = [CALayer layer];
     _car.bounds =CGRectMake(0, 0, 44.0, 20.0);
     _car.position = CGPointMake(-_viewWidth, -_viewHeight);
-    _car.contents = (id)([UIImage imageNamed:@"carmodel.png"].CGImage);
+    _car.contents = (id)([UIImage imageNamed:ANIMATION_IMAGE].CGImage);
     //    car.contents = (id)([UIImage imageNamed:@"plane-b.png"].CGImage);
     [self.layer addSublayer:_car];
     
@@ -222,8 +222,6 @@ static NSString * VALUE_LABEL_IMAGE = @"Feburary_2015_label";
         [self addSubview:[self valueSanFranImageView]];
         [self addSubview:[self valueBoardIcon]];
         [self addLinePathAndCar];
-        
-        
     }
     return self;
 }
@@ -281,27 +279,15 @@ static NSString * VALUE_LABEL_IMAGE = @"Feburary_2015_label";
 //                [self animationTravelPath];
                 self.valueBoardImageView.alpha = 1;
             } completion:^(BOOL finished) {
-                
                 if (finished) {
                     [_car removeAllAnimations];
                     _car.hidden = YES;
                     _centerline.hidden = YES;
                     [self.howItWorksViewDelegate gotoNextPage];
-//                    [UIView animateWithDuration:1.0f delay:1.0f options:UIViewAnimationOptionOverrideInheritedDuration animations:^{
-//                        
-//                        
-//                    } completion:^(BOOL finished) {
-//                        if (finished) {
-//                            
-//
-//                        }
-//                    }];
                 }
             }];
         }
     }];
-    
-
 }
 
 /**

@@ -10,6 +10,8 @@
 	<string>Magpie</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
+		<key>1987A312B2FE4B92CB6487479AFE17EAEDBB3B6D</key>
+		<string>https://github.com/minhthao/Project-Tasks.git</string>
 		<key>BD2EEF217DECDA9A6C4D9FF54C8EE51367127955</key>
 		<string>https://github.com/minhthao/Magpie.git</string>
 	</dict>
@@ -17,15 +19,17 @@
 	<string>Magpie/Magpie.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>BD2EEF217DECDA9A6C4D9FF54C8EE51367127955</key>
+		<key>1987A312B2FE4B92CB6487479AFE17EAEDBB3B6D</key>
 		<string>../../..</string>
+		<key>BD2EEF217DECDA9A6C4D9FF54C8EE51367127955</key>
+		<string>../../../../Magpie</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
-	<string>https://github.com/minhthao/Magpie.git</string>
+	<string>https://github.com/minhthao/Project-Tasks.git</string>
 	<key>IDESourceControlProjectVersion</key>
 	<integer>111</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>BD2EEF217DECDA9A6C4D9FF54C8EE51367127955</string>
+	<string>1987A312B2FE4B92CB6487479AFE17EAEDBB3B6D</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
@@ -35,6 +39,14 @@
 			<string>BD2EEF217DECDA9A6C4D9FF54C8EE51367127955</string>
 			<key>IDESourceControlWCCName</key>
 			<string>Magpie</string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>1987A312B2FE4B92CB6487479AFE17EAEDBB3B6D</string>
+			<key>IDESourceControlWCCName</key>
+			<string>Project_Outsource_Tasks_Magpie</string>
 		</dict>
 	</array>
 </dict>
