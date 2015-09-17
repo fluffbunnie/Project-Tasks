@@ -57,7 +57,7 @@ static int const TOTAL_NUMBER_PAGES = 3;
         _contentScrollView.backgroundColor = [UIColor blackColor];
         _contentScrollView.contentSize = CGSizeMake(TOTAL_NUMBER_PAGES * screenWidth, screenHeight);
         _contentScrollView.pagingEnabled = YES;
-        _contentScrollView.scrollEnabled = NO;
+//        _contentScrollView.scrollEnabled = NO;
         _contentScrollView.showsVerticalScrollIndicator = NO;
         _contentScrollView.showsHorizontalScrollIndicator = NO;
         _contentScrollView.bounces = NO;
@@ -229,17 +229,17 @@ static int const TOTAL_NUMBER_PAGES = 3;
 
 #pragma mark - scroll view delegate
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
-//    self.pageControl.currentPage = [self getCurrentPage];
+    self.pageControl.currentPage = [self getCurrentPage];
 }
 
 -(void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
-//    int newPage = [self getCurrentPage];
-//    if (newPage != self.currentPage) {
-//        self.pageControl.currentPage = newPage;
-//        [self stopAnimationAtPage:self.currentPage];
-//        [self startAnimationAtPage:newPage];
-//        self.currentPage = newPage;
-//    }
+    int newPage = [self getCurrentPage];
+    if (newPage != self.currentPage) {
+        self.pageControl.currentPage = newPage;
+        [self stopAnimationAtPage:self.currentPage];
+        [self startAnimationAtPage:newPage];
+        self.currentPage = newPage;
+    }
 }
 
 #pragma mark - helper method

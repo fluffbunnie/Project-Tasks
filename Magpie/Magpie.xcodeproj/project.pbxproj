@@ -458,7 +458,6 @@
 		FA52EF8F1BA3DD4600C1EFA7 /* HowItWorksThirdView.m in Sources */ = {isa = PBXBuildFile; fileRef = FA52EF881BA3DD4600C1EFA7 /* HowItWorksThirdView.m */; };
 		FA52EF901BA3DD4600C1EFA7 /* HowItWorksViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA52EF8A1BA3DD4600C1EFA7 /* HowItWorksViewController.m */; };
 		FA52EFA61BA41DD400C1EFA7 /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA52EFA51BA41DD400C1EFA7 /* CoreText.framework */; };
-		FA52EFAD1BA42BAA00C1EFA7 /* RQShineLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = FA52EFAC1BA42BAA00C1EFA7 /* RQShineLabel.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -1351,8 +1350,6 @@
 		FA52EF891BA3DD4600C1EFA7 /* HowItWorksViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HowItWorksViewController.h; sourceTree = "<group>"; };
 		FA52EF8A1BA3DD4600C1EFA7 /* HowItWorksViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HowItWorksViewController.m; sourceTree = "<group>"; };
 		FA52EFA51BA41DD400C1EFA7 /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
-		FA52EFAB1BA42BAA00C1EFA7 /* RQShineLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RQShineLabel.h; path = Supports/RQShineLabel.h; sourceTree = "<group>"; };
-		FA52EFAC1BA42BAA00C1EFA7 /* RQShineLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RQShineLabel.m; path = Supports/RQShineLabel.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1686,8 +1683,6 @@
 		3E1462571AE6F83000DB1ED7 /* Supports */ = {
 			isa = PBXGroup;
 			children = (
-				FA52EFAB1BA42BAA00C1EFA7 /* RQShineLabel.h */,
-				FA52EFAC1BA42BAA00C1EFA7 /* RQShineLabel.m */,
 				3E8311331AFA982100FD0C6A /* PhotoPicker */,
 				3ED31AA91AF3334A004D40FD /* Views */,
 				3E1462581AE6F86700DB1ED7 /* FontColor.h */,
@@ -3171,7 +3166,6 @@
 				3E73A15C1AE883A70022C5A2 /* NSString+JSQMessages.m in Sources */,
 				3E7686361AEED0BD006AAFD0 /* SDWebImageManager.m in Sources */,
 				3EF9BB381B001EC4004B1F71 /* MyPlaceListTableViewCell.m in Sources */,
-				FA52EFAD1BA42BAA00C1EFA7 /* RQShineLabel.m in Sources */,
 				3E73A1621AE883A70022C5A2 /* JSQMessagesViewController.m in Sources */,
 				3E06BB091B1C284300D2F266 /* RNCryptor.m in Sources */,
 				3EA6F4571B083ADE002EAE59 /* NotificationHandler.m in Sources */,

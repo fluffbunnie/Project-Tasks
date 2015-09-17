@@ -75,14 +75,17 @@ static NSString * ANIMATION_IMAGE = @"airplane.png"; //@"carmodel.png"
  */
 -(UIImageView *)valueBoardIcon {
     if (_valueBoardImageView == nil) {
-        CGRect frame =CGRectMake(self.viewWidth * 0.55, self.viewHeight *0.165, 128, 209);
+        CGRect frame;
         if ([Device isIphone4])  {
-            frame = CGRectMake(self.viewWidth * 0.52, self.viewHeight *0.15, 70, 110);
+            frame = CGRectMake(self.viewWidth * 0.52, self.viewHeight *0.15, 100, 140);
         }
-        if ([Device isIphone5])  {
-            frame = CGRectMake(self.viewWidth * 0.54, self.viewHeight *0.16, 100, 180);
+        else if ([Device isIphone5])  {
+            frame = CGRectMake(self.viewWidth * 0.54, self.viewHeight *0.16, 120, 192);
         }
+        else
+            frame =CGRectMake(self.viewWidth * 0.55, self.viewHeight *0.165, 128, 209);
         _valueBoardImageView = [[UIImageView alloc] initWithFrame:frame];
+        
         _valueBoardImageView.contentMode = UIViewContentModeScaleAspectFill;
         _valueBoardImageView.image = [UIImage imageNamed:VALUE_BOARD_IMAGE];
         _valueBoardImageView.backgroundColor = [UIColor whiteColor];
@@ -178,8 +181,7 @@ static NSString * ANIMATION_IMAGE = @"airplane.png"; //@"carmodel.png"
     _car.position = CGPointMake(-_viewWidth, -_viewHeight);
     _car.contents = (id)([UIImage imageNamed:ANIMATION_IMAGE].CGImage);
     //    car.contents = (id)([UIImage imageNamed:@"plane-b.png"].CGImage);
-    [self.layer addSublayer:_car];
-    
+
     //Setup the path for the animation - this is very similar as the code the draw the line
     //instead of drawing to the graphics context, instead we draw lines on a CGPathRef
     
@@ -205,6 +207,7 @@ static NSString * ANIMATION_IMAGE = @"airplane.png"; //@"carmodel.png"
     _centerline.lineWidth = 3.0;
     _centerline.lineDashPattern = [NSArray arrayWithObjects:[NSNumber numberWithInt:6], [NSNumber numberWithInt:5], nil];
     [self.layer addSublayer:_centerline];
+    [self.layer addSublayer:_car];
     _car.hidden = YES;
     _centerline.hidden = YES;
 }
@@ -220,8 +223,9 @@ static NSString * ANIMATION_IMAGE = @"airplane.png"; //@"carmodel.png"
         [self addSubview:[self storyFirstLine]];
         [self addSubview:[self storySecondLine]];
         [self addSubview:[self valueSanFranImageView]];
-        [self addSubview:[self valueBoardIcon]];
         [self addLinePathAndCar];
+        [self addSubview:[self valueBoardIcon]];
+        
     }
     return self;
 }
@@ -240,7 +244,6 @@ static NSString * ANIMATION_IMAGE = @"airplane.png"; //@"carmodel.png"
     [trackPath addCurveToPoint:CGPointMake(_viewWidth * 0.56, _viewHeight *0.35)
                  controlPoint1:CGPointMake(_viewWidth * 0.35, _viewHeight * 0.34)
                  controlPoint2:CGPointMake(_viewWidth * 0.54, _viewHeight *0.36)];
-    //				 controlPoint2:P(viewWidth * 0.5, viewHeight *0.352)];
     
     //    [trackPath moveToPoint:P(viewWidth *0.56, viewHeight *0.35)];
     
@@ -257,7 +260,7 @@ static NSString * ANIMATION_IMAGE = @"airplane.png"; //@"carmodel.png"
     //then we would need these parameters
     pathAnimation.fillMode = kCAFillModeForwards;
     pathAnimation.removedOnCompletion = YES;
-    pathAnimation.duration = 4.0f;
+    pathAnimation.duration = 3.0f;
     //Lets loop continuously for the demonstration
     pathAnimation.repeatCount = 0;
     
@@ -268,15 +271,14 @@ static NSString * ANIMATION_IMAGE = @"airplane.png"; //@"carmodel.png"
     _car.hidden = NO;
     _centerline.hidden = NO;
     
-    [UIView animateWithDuration:0.5f delay:0.0f options:UIViewAnimationOptionShowHideTransitionViews animations:^{
+    [UIView animateWithDuration:0.5f delay:0.5f options:UIViewAnimationOptionShowHideTransitionViews animations:^{
         self.valueLabelText1.alpha = 1;
         self.valueLabelText2.alpha = 1;
     } completion:^(BOOL finished) {
         if (finished) {
             
-            [UIView animateWithDuration:5.0f delay:1.0f options:UIViewAnimationOptionLayoutSubviews animations:^{
+            [UIView animateWithDuration:2.0f delay:1.5f options:UIViewAnimationOptionLayoutSubviews animations:^{
                 self.valueSFImageView.alpha =1;
-//                [self animationTravelPath];
                 self.valueBoardImageView.alpha = 1;
             } completion:^(BOOL finished) {
                 if (finished) {

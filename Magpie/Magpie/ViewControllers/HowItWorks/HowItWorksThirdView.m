@@ -9,7 +9,6 @@
 #import "HowItWorksThirdView.h"
 #import "Device.h"
 #import "TTTAttributedLabel.h"
-#import "UIImage+ImageEffects.h"
 
 static NSString * VALUE_LABEL_TEXT_1 = @"She searched on Magpie for free accommendations";
 static NSString * VALUE_LABEL_TEXT_2 = @"She checked out details of each place and the host";
@@ -90,21 +89,21 @@ static NSString * VALUE_KAT_AVATAR_IMAGE = @"Kat_Avatar_221";
  */
 -(UIImageView *)valueOptionRequestImage1 {
     if (_valueOptionRequest1 == nil) {
-        CGRect frame =CGRectMake(self.viewWidth * 0.1, self.viewHeight *0.14, 150, 255);
+        CGRect frame =CGRectMake(self.viewWidth * 0.05, self.viewHeight *0.14, 160, 265);
         
         if ([Device isIphone6Plus])  {
-            frame = CGRectMake(self.viewWidth * 0.05, self.viewHeight *0.15, 180, 285);
+            frame = CGRectMake(self.viewWidth * 0.05, self.viewHeight *0.13, 180, 285);
         }
         
         if ([Device isIphone5])  {
             frame = CGRectMake(self.viewWidth * 0.05, self.viewHeight *0.14, 135, 225);
         }
         if ([Device isIphone4])  {
-            frame = CGRectMake(self.viewWidth * 0.05, self.viewHeight *0.088, 132, 202);
+            frame = CGRectMake(self.viewWidth * 0.05, self.viewHeight *0.11, 132, 202);
         }
-        
+
         _valueOptionRequest1 = [[UIImageView alloc] initWithFrame:frame];
-//        _valueOptionRequest1.contentMode = UIViewContentModeScaleAspectFill;
+        _valueOptionRequest1.contentMode = UIViewContentModeScaleAspectFill;
         _valueOptionRequest1.image = [UIImage imageNamed:VALUE_OPTION_REQUEST_1];
         _valueOptionRequest1.backgroundColor = [UIColor clearColor];
         _valueOptionRequest1.alpha = 0;
@@ -119,9 +118,9 @@ static NSString * VALUE_KAT_AVATAR_IMAGE = @"Kat_Avatar_221";
  */
 -(UIImageView *)valueOptionRequestImage2 {
     if (_valueOptionRequest2 == nil) {
-        CGRect frame =CGRectMake(self.viewWidth * 0.52, self.viewHeight *0.14, 150, 241);
+        CGRect frame =CGRectMake(self.viewWidth * 0.52, self.viewHeight *0.14, 160, 251);
         if ([Device isIphone6Plus])  {
-            frame = CGRectMake(self.viewWidth * 0.52, self.viewHeight *0.15, 180, 271);
+            frame = CGRectMake(self.viewWidth * 0.52, self.viewHeight *0.13, 180, 271);
         }
         if ([Device isIphone5])  {
             frame = CGRectMake(self.viewWidth * 0.52, self.viewHeight *0.14, 135, 211);
@@ -145,15 +144,15 @@ static NSString * VALUE_KAT_AVATAR_IMAGE = @"Kat_Avatar_221";
  */
 -(UIImageView *)valueOptionRequestImage3 {
     if (_valueOptionRequest3 == nil) {
-        CGRect frame =CGRectMake(self.viewWidth * 0.1, self.viewHeight *0.554, 150, 241);
+        CGRect frame =CGRectMake(self.viewWidth * 0.05, self.viewHeight *0.56, 160, 251);
         if ([Device isIphone6Plus])  {
-            frame = CGRectMake(self.viewWidth * 0.05, self.viewHeight *0.561, 180, 271);
+            frame = CGRectMake(self.viewWidth * 0.05, self.viewHeight *0.568, 180, 271);
         }
         if ([Device isIphone5])  {
             frame = CGRectMake(self.viewWidth * 0.05, self.viewHeight *0.554, 135, 211);
         }
         if ([Device isIphone4])  {
-            frame = CGRectMake(self.viewWidth * 0.05, self.viewHeight *0.559, 132, 171);
+            frame = CGRectMake(self.viewWidth * 0.05, self.viewHeight *0.6, 132, 171);
         }
         _valueOptionRequest3 = [[UIImageView alloc] initWithFrame:frame];
         _valueOptionRequest3.contentMode = UIViewContentModeScaleAspectFill;
@@ -171,15 +170,15 @@ static NSString * VALUE_KAT_AVATAR_IMAGE = @"Kat_Avatar_221";
  */
 -(UIImageView *)valueOptionRequestImage4 {
     if (_valueOptionRequest4 == nil) {
-        CGRect frame =CGRectMake(self.viewWidth * 0.52, self.viewHeight * 0.554, 150, 255);
+        CGRect frame =CGRectMake(self.viewWidth * 0.52, self.viewHeight * 0.56, 160, 265);
         if ([Device isIphone6Plus])  {
-            frame = CGRectMake(self.viewWidth * 0.52, self.viewHeight *0.561, 180, 285);
+            frame = CGRectMake(self.viewWidth * 0.52, self.viewHeight *0.568, 180, 285);
         }
         if ([Device isIphone5] )  {
             frame = CGRectMake(self.viewWidth * 0.52, self.viewHeight * 0.554, 135, 225);
         }
         if ([Device isIphone4])  {
-            frame = CGRectMake(self.viewWidth * 0.52, self.viewHeight * 0.559, 132, 185);
+            frame = CGRectMake(self.viewWidth * 0.52, self.viewHeight * 0.57, 132, 185);
         }
         _valueOptionRequest4 = [[UIImageView alloc] initWithFrame:frame];
         _valueOptionRequest4.contentMode = UIViewContentModeScaleAspectFill;
@@ -266,12 +265,16 @@ static NSString * VALUE_KAT_AVATAR_IMAGE = @"Kat_Avatar_221";
         CGRect frame = CGRectMake(self.viewWidth *0.28, self.viewHeight*0.01, self.viewWidth*0.5, self.viewHeight*0.12);
         int fontSize = 15;
         
-        if ([Device isIphone5])  {
+        if ([Device isIphone6Plus]) {
+            frame = CGRectMake(self.viewWidth *0.24, self.viewHeight*0.01, self.viewWidth*0.5, self.viewHeight*0.12);
+            fontSize = 16;
+        }
+        else if ([Device isIphone5])  {
             frame = CGRectMake(self.viewWidth *0.28, self.viewHeight*0.01, self.viewWidth*0.5, self.viewHeight*0.12);
             fontSize = 13;
         }
         
-        if ([Device isIphone4] )  {
+        else if ([Device isIphone4] )  {
             frame = CGRectMake(self.viewWidth *0.28, self.viewHeight*0.001, self.viewWidth*0.5, self.viewHeight*0.08);
             fontSize = 11;
         }
@@ -308,24 +311,21 @@ static NSString * VALUE_KAT_AVATAR_IMAGE = @"Kat_Avatar_221";
  */
 -(UIImageView *)valueCheckOutDetails{
     if (_valueHuongCheckOut == nil) {
-//        CGRect frame =CGRectMake(self.viewWidth *0.12, self.viewHeight * 0.15, 290, 504);
-//        if ([Device isIphone5] )  {
-//            frame = CGRectMake(self.viewWidth *0.1, self.viewHeight * 0.2, 260, 380);
-//        }
-//        if ([Device isIphone4])  {
-//            frame = CGRectMake(self.viewWidth *0.2, self.viewHeight * 0.22, 195, 260);
-//        }
-//        _valueHuongCheckOut = [[UIImageView alloc] initWithFrame:frame];
-        
+
         _valueHuongCheckOut = [[UIImageView alloc] init];
+        
         if ([Device isIphone5])  {
-            _valueHuongCheckOut.frame = CGRectMake(self.viewWidth * 0.0, self.viewHeight *0, 135, 225);
-        }
-        if ([Device isIphone4])  {
-            _valueHuongCheckOut.frame = CGRectMake(self.viewWidth * 0.05, self.viewHeight *0.088, 132, 202);
-        }
-        else
             _valueHuongCheckOut.frame = CGRectMake(self.viewWidth * 0.1, self.viewHeight *0.14, 150, 255);
+        }
+        else  {
+            if ([Device isIphone4])
+                _valueHuongCheckOut.frame = CGRectMake(self.viewWidth * 0.05, self.viewHeight *0.06, 150, 255);
+            
+            else if ([Device isIphone6])
+                _valueHuongCheckOut.frame = CGRectMake(self.viewWidth * 0.07, self.viewHeight *0.14, 150, 255);
+            else
+                _valueHuongCheckOut.frame = CGRectMake(self.viewWidth * 0.1, self.viewHeight *0.14, 150, 255);
+        }
         
         _valueHuongCheckOut.contentMode = UIViewContentModeScaleAspectFill;
         _valueHuongCheckOut.backgroundColor = [UIColor clearColor];
@@ -397,14 +397,7 @@ static NSString * VALUE_KAT_AVATAR_IMAGE = @"Kat_Avatar_221";
 
 -(UIImageView *)valueStayRequest{
     if (_valueStayRequestImage == nil) {
-        CGRect frame =CGRectMake(self.viewWidth *0.12, self.viewHeight * 0.15, 290, 504);
-        if ([Device isIphone5] )  {
-            frame = CGRectMake(self.viewWidth *0.1, self.viewHeight * 0.17, 260, 380);
-        }
-        if ([Device isIphone4])  {
-            frame = CGRectMake(self.viewWidth *0.2, self.viewHeight * 0.22, 195, 260);
-        }
-        _valueStayRequestImage = [[UIImageView alloc] initWithFrame:frame];
+        _valueStayRequestImage = [[UIImageView alloc] init];
         _valueStayRequestImage.contentMode = UIViewContentModeScaleAspectFill;
         _valueStayRequestImage.backgroundColor = [UIColor clearColor];
         _valueStayRequestImage.image = [UIImage imageNamed:VALUE_STAY_REQ_IMAGE];
@@ -478,7 +471,7 @@ static NSString * VALUE_KAT_AVATAR_IMAGE = @"Kat_Avatar_221";
     if (_valueDaniRequest == nil) {
         CGRect frame =CGRectMake(self.viewWidth *0.185, self.viewHeight * 0.26, self.viewWidth *0.63, self.viewHeight *0.54);
         if ([Device isIphone5] )  {
-            frame = CGRectMake(self.viewWidth *0.185, self.viewHeight * 0.26, self.viewWidth *0.63, self.viewHeight *0.54);
+            frame = CGRectMake(self.viewWidth *0.19, self.viewHeight * 0.26, self.viewWidth *0.63, self.viewHeight *0.54);
         }
         if ([Device isIphone4])  {
             frame = CGRectMake(self.viewWidth *0.185, self.viewHeight * 0.26, self.viewWidth *0.63, self.viewHeight *0.54);
@@ -547,7 +540,6 @@ static NSString * VALUE_KAT_AVATAR_IMAGE = @"Kat_Avatar_221";
         }
         
         UIColor *textColor = [UIColor colorWithRed:118.0f/255 green:197.0f/255 blue:202.0f/255 alpha:1.0f];
-        
         UIFont *font = [UIFont fontWithName:@"AvenirNext-Medium" size:fontSize];
         NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
         paragraphStyle.minimumLineHeight = 1.3 * font.lineHeight;
@@ -578,13 +570,15 @@ static NSString * VALUE_KAT_AVATAR_IMAGE = @"Kat_Avatar_221";
  */
 -(UIImageView *)valueChatRow1Image {
     if (_chatRow1Image == nil) {
-        CGRect frame =CGRectMake(self.viewWidth * 0.02, self.viewHeight *0.22, self.viewWidth *0.876, self.viewHeight * 0.09);
+        CGRect frame;// =CGRectMake(self.viewWidth * 0.02, self.viewHeight *0.22, self.viewWidth *0.876, self.viewHeight * 0.1);
         if ([Device isIphone5])  {
-            frame = CGRectMake(self.viewWidth * 0.02, self.viewHeight *0.218, self.viewWidth *0.876, self.viewHeight * 0.09);
+            frame = CGRectMake(self.viewWidth * 0.02, self.viewHeight *0.218, self.viewWidth *0.876, self.viewHeight * 0.1);
         }
-        if ([Device isIphone4])  {
-            frame = CGRectMake(self.viewWidth * 0.02, self.viewHeight *0.218, self.viewWidth *0.876, self.viewHeight * 0.09);
+        else if ([Device isIphone4])  {
+            frame = CGRectMake(self.viewWidth * 0.02, self.viewHeight *0.2, self.viewWidth *0.876, self.viewHeight * 0.11);
         }
+        else frame =CGRectMake(self.viewWidth * 0.02, self.viewHeight *0.2, self.viewWidth * 0.876, self.viewHeight * 0.1);
+        
         _chatRow1Image = [[UIImageView alloc] initWithFrame:frame];
         _valueOptionRequest1.contentMode = UIViewContentModeScaleAspectFill;
         _chatRow1Image.image = [UIImage imageNamed:VALUE_CHAT_ROW_1];
@@ -601,14 +595,16 @@ static NSString * VALUE_KAT_AVATAR_IMAGE = @"Kat_Avatar_221";
  */
 -(UIImageView *)valueChatRow2Image {
     if (_chatRow2Image == nil) {
-        CGRect frame =CGRectMake(self.viewWidth * 0.253, self.viewHeight *0.34, self.viewWidth * 0.725, self.viewHeight * 0.127);
+        CGRect frame ;//=CGRectMake(self.viewWidth * 0.253, self.viewHeight *0.34, self.viewWidth * 0.725, self.viewHeight * 0.127);
         
         if ([Device isIphone5])  {
-            frame = CGRectMake(self.viewWidth * 0.253, self.viewHeight *0.34, self.viewWidth * 0.725, self.viewHeight * 0.127);
+            frame = CGRectMake(self.viewWidth * 0.253, self.viewHeight *0.375, self.viewWidth * 0.725, self.viewHeight * 0.127);
         }
-        if ([Device isIphone4])  {
+        else if ([Device isIphone4])  {
             frame = CGRectMake(self.viewWidth * 0.253, self.viewHeight *0.37, self.viewWidth * 0.725, self.viewHeight * 0.127);
         }
+        else frame =CGRectMake(self.viewWidth * 0.253, self.viewHeight *0.352, self.viewWidth * 0.725, self.viewHeight * 0.127);
+        
         _chatRow2Image = [[UIImageView alloc] initWithFrame:frame];
         _chatRow2Image.contentMode = UIViewContentModeScaleAspectFill;
         _chatRow2Image.image = [UIImage imageNamed:VALUE_CHAT_ROW_2];
@@ -625,13 +621,15 @@ static NSString * VALUE_KAT_AVATAR_IMAGE = @"Kat_Avatar_221";
  */
 -(UIImageView *)valueChatRow3Image {
     if (_chatRow3Image == nil) {
-        CGRect frame =CGRectMake(self.viewWidth * 0.02, self.viewHeight *0.488, self.viewWidth *0.876, self.viewHeight * 0.09);
+        CGRect frame ;//=CGRectMake(self.viewWidth * 0.02, self.viewHeight *0.488, self.viewWidth *0.876, self.viewHeight * 0.1);
         if ([Device isIphone5])  {
-            frame = CGRectMake(self.viewWidth * 0.02, self.viewHeight *0.5, self.viewWidth *0.876, self.viewHeight * 0.09);
+            frame = CGRectMake(self.viewWidth * 0.05, self.viewHeight *0.55, self.viewWidth *0.884, self.viewHeight * 0.1);
         }
-        if ([Device isIphone4])  {
-            frame = CGRectMake(self.viewWidth * 0.02, self.viewHeight *0.56, self.viewWidth *0.876, self.viewHeight * 0.09);
+        else if ([Device isIphone4])  {
+            frame = CGRectMake(self.viewWidth * 0.02, self.viewHeight *0.56, self.viewWidth *0.876, self.viewHeight * 0.11);
         }
+        else frame =CGRectMake(self.viewWidth * 0.05, self.viewHeight *0.52, self.viewWidth *0.876, self.viewHeight * 0.1);
+        
         _chatRow3Image = [[UIImageView alloc] initWithFrame:frame];
         _chatRow3Image.contentMode = UIViewContentModeScaleAspectFill;
         _chatRow3Image.image = [UIImage imageNamed:VALUE_CHAT_ROW_3];
@@ -650,7 +648,6 @@ static NSString * VALUE_KAT_AVATAR_IMAGE = @"Kat_Avatar_221";
     [self addSubview:[self valueChatRow1Image]];
     [self addSubview:[self valueChatRow2Image]];
     [self addSubview:[self valueChatRow3Image]];
-
 }
 
 #pragma mark - initiation screen 6
@@ -803,23 +800,23 @@ static NSString * VALUE_KAT_AVATAR_IMAGE = @"Kat_Avatar_221";
 -(void)showView {
 
     [UIView animateWithDuration:0.5f delay:0.0f options:UIViewAnimationOptionCurveEaseInOut animations:^{
-        self.valueLabelText1.alpha = 1;
+        _valueLabelText1.alpha = 1;
     } completion:^(BOOL finished) {
         if (finished) {
             [UIView animateWithDuration:0.5f delay:0.5f options:UIViewAnimationOptionShowHideTransitionViews animations:^{
-                self.valueOptionRequest1.alpha = 1;
+                _valueOptionRequest1.alpha = 1;
             } completion:^(BOOL finished) {
                 if (finished) {
                     [UIView animateWithDuration:0.5f delay:0.5f options:UIViewAnimationOptionShowHideTransitionViews animations:^{
-                        self.valueOptionRequest2.alpha = 1;
+                        _valueOptionRequest2.alpha = 1;
                     } completion:^(BOOL finished) {
                         if (finished) {
                             [UIView animateWithDuration:0.5f delay:0.5f options:UIViewAnimationOptionShowHideTransitionViews animations:^{
-                                self.valueOptionRequest3.alpha = 1;
+                                _valueOptionRequest3.alpha = 1;
                             } completion:^(BOOL finished) {
                                 if (finished) {
                                     [UIView animateWithDuration:0.5f delay:0.5f options:UIViewAnimationOptionShowHideTransitionViews animations:^{
-                                        self.valueOptionRequest4.alpha = 1;
+                                        _valueOptionRequest4.alpha = 1;
                                     } completion:^(BOOL finished) {
                                         if (finished) {
                                             [self animatedScreen2];
@@ -833,18 +830,17 @@ static NSString * VALUE_KAT_AVATAR_IMAGE = @"Kat_Avatar_221";
             }];
         }
     }];
-
 }
 
 /**
- * show the view in animation
+ * show the view2 in animation
  */
 
 -(void) animatedScreen2 {
     
     _valueLabelText1.alpha = 0;
     
-    [UIView animateWithDuration:1.0f delay:0.0f options:UIViewAnimationOptionCurveEaseIn animations:^{
+    [UIView animateWithDuration:1.0f delay:0.5f options:UIViewAnimationOptionCurveEaseIn animations:^{
         
         self.valueOptionRequest2.alpha = 0;
         self.valueOptionRequest3.alpha = 0;
@@ -853,26 +849,28 @@ static NSString * VALUE_KAT_AVATAR_IMAGE = @"Kat_Avatar_221";
     
     } completion:^(BOOL finished) {
         if (finished) {
-            
+//                self.valueOptionRequest1.alpha = 0;
+                _valueHuongCheckOut.frame = _valueOptionRequest1.frame;
             [UIView animateWithDuration:2.0f delay:0.5f options:UIViewAnimationOptionOverrideInheritedCurve animations:^{
                 
                 self.valueOptionRequest1.alpha = 0;
-
-                CGRect frame =CGRectMake(self.viewWidth *0.13, self.viewHeight * 0.15, 295, 510);
+               
                 if ([Device isIphone5] )  {
-                        frame = CGRectMake(self.viewWidth *0.1, self.viewHeight * 0.2, 260, 380);
+                        _valueHuongCheckOut.frame = CGRectMake(self.viewWidth *0.1, self.viewHeight * 0.2, 260, 380);
                     }
-                    if ([Device isIphone4])  {
-                        frame = CGRectMake(self.viewWidth *0.2, self.viewHeight * 0.22, 195, 260);
-                    }
-                _valueHuongCheckOut.frame = frame;
+                else if ([Device isIphone4])  {
+                        _valueHuongCheckOut.frame = CGRectMake(self.viewWidth *0.145, self.viewHeight * 0.12, 222, 383);
+                }
+                else if ([Device isIphone6])
+                    _valueHuongCheckOut.frame = CGRectMake(self.viewWidth *0.12, self.viewHeight * 0.15, 295, 510);
+                else
+                    _valueHuongCheckOut.frame = CGRectMake(self.viewWidth *0.134, self.viewHeight * 0.15, 295, 510);
+                
                 _valueHuongCheckOut.alpha = 1;
                 
             } completion:^(BOOL finished) {
                 if (finished) {
                       [self animatedScreen3];
-
-
                 }
             }];
         }
@@ -881,22 +879,43 @@ static NSString * VALUE_KAT_AVATAR_IMAGE = @"Kat_Avatar_221";
 }
 
 /**
- * show the view in animation
+ * show the view3 in animation
  */
 
 -(void) animatedScreen3 {
     
-    [UIView animateWithDuration:1.0f delay:0.0f options:UIViewAnimationOptionOverrideInheritedCurve animations:^{
+    [UIView animateWithDuration:1.0f delay:1.5f options:UIViewAnimationOptionOverrideInheritedCurve animations:^{
         _valueHuongCheckOut.alpha = 0;
         _valueLabelText2.alpha = 0;
     } completion:^(BOOL finished) {
         if (finished) {
-            [UIView animateWithDuration:1.0f delay:0.0f options:UIViewAnimationOptionLayoutSubviews animations:^{
-
+            
+            [UIView animateWithDuration:1.0f delay:0.5f options:UIViewAnimationOptionLayoutSubviews animations:^{
                 _valueLabelText3.alpha = 1;
             } completion:^(BOOL finished) {
                 if (finished) {
-                    [UIView animateWithDuration:1.0f delay:0.0f options:UIViewAnimationOptionOverrideInheritedCurve animations:^{
+                    if ([Device isIphone5] )  {
+                        _valueStayRequestImage.frame = CGRectMake(self.viewWidth *2.1, self.viewHeight * 0.15, 240, 410);
+                    }
+                    else if ([Device isIphone4])  {
+                        _valueStayRequestImage.frame = CGRectMake(self.viewWidth *2.148, self.viewHeight * 0.12, 220, 380);
+                    }
+                    else
+                        _valueStayRequestImage.frame = CGRectMake(self.viewWidth *2.12, self.viewHeight * 0.15, 290, 504);
+                    
+                    [UIView animateWithDuration:1.0f delay:0.0f options:UIViewAnimationOptionCurveEaseOut animations:^{
+                        if ([Device isIphone5] )  {
+                            _valueStayRequestImage.frame = CGRectMake(self.viewWidth *0.13, self.viewHeight * 0.15, 240, 410);
+                        }
+                        else if ([Device isIphone6] )
+                            _valueStayRequestImage.frame = CGRectMake(self.viewWidth *0.12, self.viewHeight * 0.15, 290, 504);
+                        
+                        else if ([Device isIphone4])  {
+                            _valueStayRequestImage.frame = CGRectMake(self.viewWidth *0.148, self.viewHeight * 0.12, 220, 380);
+                        }
+                        else
+                            _valueStayRequestImage.frame = CGRectMake(self.viewWidth *0.146, self.viewHeight * 0.15, 295, 510);
+                        
                         _valueStayRequestImage.alpha = 1.0f;
                     } completion:^(BOOL finished) {
                         if (finished) {
@@ -913,11 +932,11 @@ static NSString * VALUE_KAT_AVATAR_IMAGE = @"Kat_Avatar_221";
 }
 
 /**
- * show the view in animation
+ * show the view4 in animation
  */
 
 -(void) animatedScreen4 {
-    [UIView animateWithDuration:1.0f delay:1.0f options:UIViewAnimationOptionOverrideInheritedCurve animations:^{
+    [UIView animateWithDuration:1.0f delay:1.5f options:UIViewAnimationOptionOverrideInheritedCurve animations:^{
         _valueStayRequestImage.alpha = 0;
         _valueLabelText3.alpha = 0;
     } completion:^(BOOL finished) {
@@ -926,17 +945,30 @@ static NSString * VALUE_KAT_AVATAR_IMAGE = @"Kat_Avatar_221";
                 _valueLabelText4.alpha = 1;
             } completion:^(BOOL finished) {
                 if (finished) {
-                    [UIView animateWithDuration:1.5f delay:0.5f options:UIViewAnimationOptionBeginFromCurrentState animations:^{
+                    
+                    if ([Device isIphone5] )  {
+                        _valueKatAvatar.frame = CGRectMake(- self.viewWidth *1.8, self.viewHeight * 0.13, 90, 90);
+                    }
+                    else if ([Device isIphone4])  {
+                        _valueKatAvatar.frame = CGRectMake(- self.viewWidth *2.1, self.viewHeight * 0.12, 80, 80);
+                    }
+                    else
+                        _valueKatAvatar.frame =CGRectMake(- self.viewWidth *1.5, self.viewHeight* 0.13, 110, 110);
+                    
+                    [UIView animateWithDuration:1.5f delay:0.5f options:UIViewAnimationOptionTransitionCurlUp animations:^{
                         
-                        _valueKatAvatar.frame =CGRectMake(self.viewWidth *0.05, self.viewHeight*0.13, 110, 110);
                         if ([Device isIphone5] )  {
-                            _valueKatAvatar.frame = CGRectMake(self.viewWidth *0.08, self.viewHeight * 0.15, 90, 90);
+                            _valueKatAvatar.frame = CGRectMake(self.viewWidth *0.08, self.viewHeight * 0.13, 90, 90);
                         }
-                        if ([Device isIphone4])  {
-                            _valueKatAvatar.frame = CGRectMake(self.viewWidth *0.15, self.viewHeight * 0.18, 60, 60);
+                        else if ([Device isIphone4])  {
+                            _valueKatAvatar.frame = CGRectMake(self.viewWidth *0.1, self.viewHeight * 0.12, 80, 80);
                         }
+                        else
+                            _valueKatAvatar.frame =CGRectMake(self.viewWidth *0.05, self.viewHeight*0.13, 110, 110);
+                        
                         _valueKatAvatar.alpha = 1;
                         _valueDaniRequest.alpha = 1;
+                        
                     } completion:^(BOOL finished) {
                         if (finished) {
                             [self animatedScreen5];
@@ -952,12 +984,12 @@ static NSString * VALUE_KAT_AVATAR_IMAGE = @"Kat_Avatar_221";
 }
 
 /**
- * show the view in animation
+ * show the view5 in animation
  */
 
 -(void) animatedScreen5 {
     
-    [UIView animateWithDuration:1.0f delay:1.0f options:UIViewAnimationOptionTransitionCurlUp animations:^{
+    [UIView animateWithDuration:1.0f delay:2.0f options:UIViewAnimationOptionTransitionCurlUp animations:^{
         _valueDaniRequest.alpha = 0;
         _valueKatAvatar.alpha = 0;
         _valueLabelText4.alpha = 0;
@@ -990,44 +1022,54 @@ static NSString * VALUE_KAT_AVATAR_IMAGE = @"Kat_Avatar_221";
 }
 
 /**
- * show the view in animation
+ * show the view6 in animation
  */
 
 -(void) animatedScreen6 {
 
     
     if ([Device isIphone5] )  {
-        _valueKatAvatar.frame = CGRectMake(- self.viewWidth *0.2, self.viewHeight * 0.266, self.viewWidth *0.35, self.viewHeight *0.2);
+        _valueKatAvatar.frame = CGRectMake(- self.viewWidth *2.12, self.viewHeight * 0.266, self.viewWidth *0.35, self.viewHeight *0.2);
     }
-    if ([Device isIphone4])  {
-        _valueKatAvatar.frame = CGRectMake(- self.viewWidth *0.2, self.viewHeight * 0.266, self.viewWidth *0.32, self.viewHeight *0.18);
+    else if ([Device isIphone4])  {
+        _valueKatAvatar.frame = CGRectMake(- self.viewWidth *2.15, self.viewHeight * 0.266, self.viewWidth *0.32, self.viewHeight *0.18);
     }
-    else {
-        _valueKatAvatar.frame = CGRectMake( - self.viewWidth * 0.2, self.viewHeight * 0.266, self.viewWidth *0.38, self.viewHeight *0.21);
-    }
+    else
+        _valueKatAvatar.frame = CGRectMake(- self.viewWidth * 2.1, self.viewHeight * 0.266, self.viewWidth *0.38, self.viewHeight *0.21);
 
-    [UIView animateWithDuration:1.0f delay:0.0f options:UIViewAnimationOptionTransitionFlipFromTop animations:^{
+    [UIView animateWithDuration:1.0f delay:1.0f options:UIViewAnimationOptionTransitionFlipFromTop animations:^{
         
         _chatRow1Image.alpha = 0;
         _chatRow2Image.alpha = 0;
         _chatRow3Image.alpha = 0;
         _valueLabelText5.alpha = 0;
-        
         _valueLabelText6.alpha = 1;
-        CGRect frame =CGRectMake(self.viewWidth * 0.58, self.viewHeight * 0.266, self.viewWidth *0.3, self.viewHeight *0.2);
-        
-        if ([Device isIphone5] )  {
-            frame = CGRectMake(self.viewWidth *0.57, self.viewHeight * 0.266, self.viewWidth *0.29, self.viewHeight *0.19);
-        }
-        if ([Device isIphone4])  {
-            frame = CGRectMake(self.viewWidth *0.54, self.viewHeight * 0.256, self.viewWidth *0.3, self.viewHeight *0.2);
-        }
-        _valueDaniAvatar.frame = frame;
-        _valueDaniAvatar.alpha = 1;
+        [self addValueAvatarKat];
+       
     } completion:^(BOOL finished) {
         if (finished) {
+            
+            if ([Device isIphone5] )  {
+                _valueDaniAvatar.frame = CGRectMake(self.viewWidth *2.57, self.viewHeight * 0.266, self.viewWidth *0.29, self.viewHeight *0.19);
+            }
+            else if ([Device isIphone4])  {
+                _valueDaniAvatar.frame = CGRectMake(self.viewWidth *2.54, self.viewHeight * 0.256, self.viewWidth *0.3, self.viewHeight *0.2);
+            }
+            else
+                _valueDaniAvatar.frame = CGRectMake(self.viewWidth * 2.58, self.viewHeight * 0.266, self.viewWidth *0.3, self.viewHeight *0.2);
+            
             [UIView animateWithDuration:1.0f delay:0.0f options:UIViewAnimationOptionCurveLinear animations:^{
-                [self addValueAvatarKat];
+                _valueDaniAvatar.alpha = 1;
+                if ([Device isIphone5] )  {
+                    _valueDaniAvatar.frame = CGRectMake(self.viewWidth *0.57, self.viewHeight * 0.266, self.viewWidth *0.29, self.viewHeight *0.19);
+                }
+                else if ([Device isIphone4])  {
+                    _valueDaniAvatar.frame = CGRectMake(self.viewWidth *0.54, self.viewHeight * 0.256, self.viewWidth *0.3, self.viewHeight *0.2);
+                }
+                else
+                    _valueDaniAvatar.frame = CGRectMake(self.viewWidth * 0.58, self.viewHeight * 0.266, self.viewWidth *0.3, self.viewHeight *0.2);
+
+               
             } completion:^(BOOL finished) {
                 if (finished) {
                     [UIView animateWithDuration:1.0f delay:0.0f options:UIViewAnimationOptionOverrideInheritedCurve animations:^{
@@ -1048,7 +1090,7 @@ static NSString * VALUE_KAT_AVATAR_IMAGE = @"Kat_Avatar_221";
 }
 
 /**
- * Hide the view in animation
+ * Hide the view and animation
  */
 -(void)hideView {
     //screen hide all

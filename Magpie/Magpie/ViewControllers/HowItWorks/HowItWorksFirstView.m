@@ -10,7 +10,6 @@
 #import "Device.h"
 #import "TTTAttributedLabel.h"
 #import "UIImage+ImageEffects.h"
-#import "RQShineLabel.h"
 
 static NSString * VALUE_PROP_SCREEN = @"Background_1";
 static NSString * VALUE_PROP_ICON = @"Dani_Avatar_291";
@@ -22,7 +21,7 @@ static NSString * DOOR_IMAGE = @"Door_164";
 static NSString * STICK_IMAGE = @"stick";
 
 static NSString * FIRST_LINE_TEXT = @"Meet Dani";
-static NSString * SECOND_LINE_TEXT = @"Femaile Founder";
+static NSString * SECOND_LINE_TEXT = @"Female Founder";
 static NSString * THIRD_LINE_TEXT = @"Became a happy Magpie since Fall, 2014";
 
 static NSString * FIRST_INTRODUCE_LINE_TEXT = @"Through Magpie,";
@@ -78,11 +77,8 @@ static NSString * IMAGE_ANIMATION = @"airplane.png"; //@"carmodel.png"
 -(UIImageView *)valuePropIcon {
     if (_valuePropIcon == nil) {
         CGRect frame = CGRectMake(self.viewWidth *0.07, self.viewHeight*0.447, 145, 145);
-
         if ([Device isIphone4])
             frame = CGRectMake(self.viewWidth *0.07, self.viewHeight * 0.4, self.viewWidth *0.3, self.viewHeight *0.22);
-//            frame = CGRectMake(self.viewWidth *0.1, self.viewHeight*0.4, 85, 85);
-        
         if ([Device isIphone5] )  {
             frame = CGRectMake(self.viewWidth *0.07, self.viewHeight * 0.4, self.viewWidth *0.33, self.viewHeight *0.22);
         }
@@ -176,16 +172,18 @@ static NSString * IMAGE_ANIMATION = @"airplane.png"; //@"carmodel.png"
 
 -(TTTAttributedLabel *)firstLine {
     if (_valuePropText1 == nil) {
-        CGRect frame = CGRectMake(self.viewWidth *0.526, self.viewHeight*0.32, self.viewWidth*0.4, self.viewHeight*0.35);
+        CGRect frame;
         int fontSize = 22;
-        if ([Device isIphone4])  {
-            frame = CGRectMake(self.viewWidth *0.5, self.viewHeight*0.31, self.viewWidth*0.4, self.viewWidth*0.4);
-            fontSize = 17;
-        }
         if ([Device isIphone5])  {
             frame = CGRectMake(self.viewWidth *0.52, self.viewHeight*0.33, self.viewWidth*0.4, self.viewWidth*0.4);
             fontSize = 18;
         }
+        
+        else if ([Device isIphone4])  {
+            frame = CGRectMake(self.viewWidth *0.52, self.viewHeight*0.31, self.viewWidth*0.4, self.viewWidth*0.4);
+            fontSize = 17;
+        }
+        else frame = CGRectMake(self.viewWidth *0.526, self.viewHeight*0.32, self.viewWidth*0.4, self.viewHeight*0.35);
         _valuePropText1 = [[TTTAttributedLabel alloc] initWithFrame:frame];
         _valuePropText1.lineSpacing = 10;
         _valuePropText1.font = [UIFont fontWithName:FONTNAME size:fontSize]; //[UIFont boldSystemFontOfSize:24] ;@"AvenirNext-Bold"
@@ -208,16 +206,21 @@ static NSString * IMAGE_ANIMATION = @"airplane.png"; //@"carmodel.png"
 
 -(TTTAttributedLabel *)secondLine {
     if (_valuePropText2 == nil) {
-        CGRect frame = CGRectMake(self.viewWidth *0.526, self.viewHeight*0.33 + 10 , self.viewWidth*0.3, self.viewHeight*0.4);
+        CGRect frame ;
         int fontSize = 14;
-        if ([Device isIphone4])  {
-            frame = CGRectMake(self.viewWidth *0.5, self.viewHeight*0.32 + 20, self.viewWidth*0.4, self.viewWidth*0.4);
-            fontSize = 12;
-        }
+        
         if ([Device isIphone5])  {
             frame = CGRectMake(self.viewWidth *0.52, self.viewHeight*0.34 + 20, self.viewWidth*0.4, self.viewWidth*0.4);
             fontSize = 13;
         }
+        
+        else if ([Device isIphone4])  {
+            frame = CGRectMake(self.viewWidth *0.52, self.viewHeight*0.32 + 20, self.viewWidth*0.4, self.viewWidth*0.4);
+            fontSize = 12;
+        }
+        
+        else frame = CGRectMake(self.viewWidth *0.526, self.viewHeight*0.33 + 10 , self.viewWidth*0.3, self.viewHeight*0.4);
+            
         _valuePropText2 = [[TTTAttributedLabel alloc] initWithFrame:frame];
         _valuePropText2.lineSpacing = 10;
         _valuePropText2.font = [UIFont fontWithName:FONTNAME size:fontSize];
@@ -241,15 +244,17 @@ static NSString * IMAGE_ANIMATION = @"airplane.png"; //@"carmodel.png"
     if (_valuePropText3 == nil) {
         CGRect frame = CGRectMake(self.viewWidth *0.526, self.viewHeight*0.34 + 36, self.viewWidth*0.5, self.viewHeight*0.4);
         int fontSize = 14;
-        if ([Device isIphone4])  {
-            frame = CGRectMake(self.viewWidth *0.5, self.viewHeight*0.32 + 45, self.viewWidth*0.5, self.viewWidth*0.4);
-            fontSize = 12;
-        }
         if ([Device isIphone5])  {
             frame = CGRectMake(self.viewWidth *0.52, self.viewHeight*0.34 + 50, self.viewWidth*0.5, self.viewWidth*0.4);
             fontSize = 14;
         }
-        if ([Device isIphone6Plus])  {
+        
+        else if ([Device isIphone4])  {
+            frame = CGRectMake(self.viewWidth *0.52, self.viewHeight*0.32 + 48, self.viewWidth*0.5, self.viewWidth*0.4);
+            fontSize = 12;
+        }
+       
+        else if ([Device isIphone6Plus])  {
             frame = CGRectMake(self.viewWidth *0.526, self.viewHeight*0.33 + 45, self.viewWidth*0.4, self.viewHeight*0.4);
         }
         UIFont *font = [UIFont fontWithName:FONTNAME size:fontSize];
@@ -303,7 +308,7 @@ static NSString * IMAGE_ANIMATION = @"airplane.png"; //@"carmodel.png"
         }
         
         if ([Device isIphone4] )  {
-            frame = CGRectMake(self.viewWidth *0.5, self.viewHeight*0.25, self.viewHeight*0.4, self.viewHeight*0.4);
+            frame = CGRectMake(self.viewWidth *0.52, self.viewHeight*0.25, self.viewHeight*0.4, self.viewHeight*0.4);
             fontSize = 12;
         }
         _valueIntroMagpieText1 = [[TTTAttributedLabel alloc] initWithFrame:frame];
@@ -327,18 +332,19 @@ static NSString * IMAGE_ANIMATION = @"airplane.png"; //@"carmodel.png"
 
 -(TTTAttributedLabel *)introMagpieSecondLine {
     if (_valueIntroMagpieText2 == nil) {
-        CGRect frame = CGRectMake(self.viewWidth *0.526, self.viewHeight*0.34 + 20, self.viewWidth*0.5, self.viewHeight*0.4);
+        CGRect frame;
         int fontSize = 14;
-        if ( [Device isIphone5])  {
-            frame = CGRectMake(self.viewWidth *0.52, self.viewHeight*0.25 + 42, self.viewWidth*0.45, self.viewHeight*0.4);
-        }
-        if ([Device isIphone4] )  {
-            frame = CGRectMake(self.viewWidth *0.5, self.viewHeight*0.25 + 38, self.viewWidth*0.5, self.viewHeight*0.4);
-            fontSize = 12;
-        }
         if ([Device isIphone6Plus] )  {
             frame = CGRectMake(self.viewWidth *0.526, self.viewHeight*0.34 + 15, self.viewWidth*0.4, self.viewHeight*0.4);
         }
+        else if ( [Device isIphone5])  {
+            frame = CGRectMake(self.viewWidth *0.52, self.viewHeight*0.25 + 42, self.viewWidth*0.45, self.viewHeight*0.4);
+        }
+        else if ([Device isIphone4] )  {
+            frame = CGRectMake(self.viewWidth *0.52, self.viewHeight*0.25 + 38, self.viewWidth*0.5, self.viewHeight*0.4);
+            fontSize = 12;
+        } else frame = CGRectMake(self.viewWidth *0.526, self.viewHeight*0.34 + 20, self.viewWidth*0.5, self.viewHeight*0.4);
+        
         
         UIFont *font = [UIFont fontWithName:FONTNAME size:fontSize];
         NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
@@ -388,7 +394,6 @@ static NSString * IMAGE_ANIMATION = @"airplane.png"; //@"carmodel.png"
         [self addDesciptionAboutDani];
         [self addIntroduceAboutMagpie];
         [self addAvatarAndDoor];
-
     }
     return self;
 }
@@ -406,7 +411,7 @@ static NSString * IMAGE_ANIMATION = @"airplane.png"; //@"carmodel.png"
         if (finished) {
             self.valueIntroMagpieText1.alpha = 1;
             self.valueIntroMagpieText2.alpha = 1;
-             [self addAvatarsArray];
+            [self addAvatarsArray];
         }
     }];
 }
@@ -418,38 +423,43 @@ static NSString * IMAGE_ANIMATION = @"airplane.png"; //@"carmodel.png"
 - (void) addAvatarsArray {
     
     if (_avatar1ImageView != nil) {
-        _avatar1ImageView.frame = CGRectMake(-self.viewWidth * 1.3, - self.viewHeight * 1.8, 71, 71);
-        if ([Device isIphone4]) _avatar1ImageView.frame = CGRectMake(-self.viewWidth * 1.3, - self.viewHeight * 1.8, 52, 52);
         if ([Device isIphone5]) _avatar1ImageView.frame = CGRectMake(- self.viewWidth * 1.3, - self.viewHeight * 1.8, 64, 64);
+        else if ([Device isIphone4]) _avatar1ImageView.frame = CGRectMake(-self.viewWidth * 0.3, - self.viewHeight * 1.8, 52, 52);
+        else _avatar1ImageView.frame = CGRectMake(-self.viewWidth * 1.3, - self.viewHeight * 1.8, 71, 71);
     }
     
     if (_avatar2ImageView != nil) {
-        _avatar2ImageView.frame =CGRectMake(self.viewWidth * 0.5, - self.viewHeight * 1.5, 104, 104);
-        if ([Device isIphone4]) _avatar2ImageView.frame = CGRectMake(self.viewWidth * 0.5, - self.viewHeight * 1.8, 64, 64);
+        
         if ([Device isIphone5]) _avatar2ImageView.frame = CGRectMake(self.viewWidth * 0.5, - self.viewHeight * 1.8, 80, 80);
+        else if ([Device isIphone4]) _avatar2ImageView.frame = CGRectMake(self.viewWidth * 0.5, - self.viewHeight * 1.8, 64, 64);
+        else _avatar2ImageView.frame =CGRectMake(self.viewWidth * 0.5, - self.viewHeight * 1.5, 104, 104);
     }
     if (_avatar3ImageView != nil) {
-        _avatar3ImageView.frame =CGRectMake(self.viewWidth * 0.2, - self.viewHeight * 1.2, 86, 86);
-        if ([Device isIphone4]) _avatar3ImageView.frame = CGRectMake(self.viewWidth * 0.2,  - self.viewHeight * 1.2, 58, 58);
+        
         if ([Device isIphone5]) _avatar3ImageView.frame = CGRectMake(self.viewWidth * 0.2,  - self.viewHeight * 1.2, 68, 68);
+        else if ([Device isIphone4]) _avatar3ImageView.frame = CGRectMake(self.viewWidth * 0.2,  - self.viewHeight * 1.2, 58, 58);
+        else _avatar3ImageView.frame =CGRectMake(self.viewWidth * 0.2, - self.viewHeight * 1.2, 86, 86);
     }
     
     [UIView animateWithDuration:1.0 delay:0.0f options:UIViewAnimationOptionAllowAnimatedContent animations:^{
-        _avatar1ImageView.frame = CGRectMake(self.viewWidth * 0.3, self.viewHeight * 0.08, 71, 71);
-        if ([Device isIphone4]) _avatar1ImageView.frame = CGRectMake(self.viewWidth * 0.3, self.viewHeight * 0.06, 52, 52);
+        
         if ([Device isIphone5]) _avatar1ImageView.frame = CGRectMake(self.viewWidth * 0.3, self.viewHeight * 0.06, 64, 64);
+        else if ([Device isIphone4]) _avatar1ImageView.frame = CGRectMake(self.viewWidth * 0.3, self.viewHeight * 0.06, 52, 52);
+        else _avatar1ImageView.frame = CGRectMake(self.viewWidth * 0.3, self.viewHeight * 0.08, 71, 71);
         _avatar1ImageView.alpha = 1;
     }completion:^(BOOL finished) {
         [UIView animateWithDuration:0.8 delay:0.0f options:UIViewAnimationOptionTransitionCurlUp animations:^{
-            _avatar2ImageView.frame =CGRectMake(self.viewWidth * 0.5, self.viewHeight * 0.15, 104, 104);
-            if ([Device isIphone4]) _avatar2ImageView.frame = CGRectMake(self.viewWidth * 0.5, self.viewHeight * 0.14, 64, 64);
+            
             if ([Device isIphone5]) _avatar2ImageView.frame = CGRectMake(self.viewWidth * 0.5, self.viewHeight * 0.14, 80, 80);
+            else if ([Device isIphone4]) _avatar2ImageView.frame = CGRectMake(self.viewWidth * 0.5, self.viewHeight * 0.14, 64, 64);
+            else _avatar2ImageView.frame =CGRectMake(self.viewWidth * 0.5, self.viewHeight * 0.15, 104, 104);
             _avatar2ImageView.alpha = 1;
         }completion:^(BOOL finished) {
             [UIView animateWithDuration:0.8 delay:0.0f options:UIViewAnimationOptionOverrideInheritedDuration animations:^{
-                _avatar3ImageView.frame =CGRectMake(self.viewWidth * 0.2, self.viewHeight * 0.2, 86, 86);
-                if ([Device isIphone4]) _avatar3ImageView.frame = CGRectMake(self.viewWidth * 0.2, self.viewHeight * 0.2, 58, 58);
+                
                 if ([Device isIphone5]) _avatar3ImageView.frame = CGRectMake(self.viewWidth * 0.2, self.viewHeight * 0.2, 68, 68);
+                else if ([Device isIphone4]) _avatar3ImageView.frame = CGRectMake(self.viewWidth * 0.2, self.viewHeight * 0.2, 58, 58);
+                else _avatar3ImageView.frame =CGRectMake(self.viewWidth * 0.2, self.viewHeight * 0.2, 86, 86);
                 _avatar3ImageView.alpha = 1;
             }completion:^(BOOL finished) {
                 [UIView animateWithDuration:0.5 delay:0.0f options:UIViewAnimationOptionCurveLinear animations:^{
@@ -474,50 +484,56 @@ static NSString * IMAGE_ANIMATION = @"airplane.png"; //@"carmodel.png"
 
 
 -(void) animationLinePath{
-    CALayer *car = [CALayer layer];
+    CALayer *flyImage = [CALayer layer];
     CAShapeLayer *centerline = [CAShapeLayer layer];
-//    [UIView animateWithDuration:3.0f delay:1.0f options:UIViewAnimationOptionCurveEaseInOut animations:^{
-        //    animation from departure
-//        CALayer *car = [CALayer layer];
-        //    car.bounds = CGRectMake(0, 0, 128, 51);
-        //    car.bounds = CGRectMake(0, 0, 80, 80);
-        car.bounds =CGRectMake(0, 0, 44.0, 20.0);
-        car.position = CGPointMake(-_viewWidth, -_viewHeight);
-        car.contents = (id)([UIImage imageNamed:IMAGE_ANIMATION].CGImage);
-        //    car.contents = (id)([UIImage imageNamed:@"plane-b.png"].CGImage);
-        [self.layer addSublayer:car];
-        
-        //Setup the path for the animation - this is very similar as the code the draw the line
-        //instead of drawing to the graphics context, instead we draw lines on a CGPathRef
-        CGMutablePathRef curvedPath = CGPathCreateMutable();
-        CGPathMoveToPoint(curvedPath, NULL, _viewWidth *0.4 , _viewHeight * 0.6);
-        CGPathAddQuadCurveToPoint(curvedPath, NULL, _viewWidth *2.0, _viewHeight*0.4, _viewWidth * 0.8, -_viewHeight*0.4 );
-        
-        //Prepare the animation - we use keyframe animation for animations of this complexity
-        CAKeyframeAnimation *pathAnimation = [CAKeyframeAnimation animationWithKeyPath:@"position"];
-        //Set some variables on the animation
-        pathAnimation.calculationMode = kCAAnimationPaced;
-        //We want the animation to persist - not so important in this case - but kept for clarity
-        //If we animated something from left to right - and we wanted it to stay in the new position,
-        //then we would need these parameters
-        pathAnimation.fillMode = kCAFillModeForwards;
-        pathAnimation.removedOnCompletion = YES;
-        pathAnimation.duration = 6.0f;
-        //Lets loop continuously for the demonstration
-        pathAnimation.repeatCount = 0;
-        
-        //Now we have the path, we tell the animation we want to use this path - then we release the path
-        pathAnimation.path = curvedPath;
-        pathAnimation.rotationMode = kCAAnimationRotateAuto;
-        
-        centerline.path = curvedPath ;
-        centerline.strokeColor = [UIColor whiteColor].CGColor;
-        centerline.fillColor = [UIColor clearColor].CGColor;
-        centerline.lineWidth = 3.0;
-        centerline.lineDashPattern = [NSArray arrayWithObjects:[NSNumber numberWithInt:10], [NSNumber numberWithInt:8], nil];
-        [self.layer addSublayer:centerline];
-        [car addAnimation:pathAnimation forKey:@"animationLinePath"];
-        CGPathRelease(curvedPath);
+    
+    flyImage.bounds =CGRectMake(0, 0, 44.0, 20.0);
+    flyImage.position = CGPointMake(-_viewWidth, -_viewHeight);
+    flyImage.contents = (id)([UIImage imageNamed:IMAGE_ANIMATION].CGImage);
+    //    car.contents = (id)([UIImage imageNamed:@"plane-b.png"].CGImage);
+    
+    //Setup the path for the animation - this is very similar as the code the draw the line
+    //instead of drawing to the graphics context, instead we draw lines on a CGPathRef
+    CGMutablePathRef curvedPath = CGPathCreateMutable();
+    if ([Device isIphone6Plus])
+        CGPathMoveToPoint(curvedPath, NULL, _viewWidth *0.42 , _viewHeight * 0.55);
+
+    else if ([Device isIphone5])
+        CGPathMoveToPoint(curvedPath, NULL, _viewWidth *0.4 , _viewHeight * 0.55);
+
+    else if ([Device isIphone6])
+        CGPathMoveToPoint(curvedPath, NULL, _viewWidth *0.44 , _viewHeight * 0.6);
+    else
+        CGPathMoveToPoint(curvedPath, NULL, _viewWidth *0.35 , _viewHeight * 0.55);
+
+    CGPathAddQuadCurveToPoint(curvedPath, NULL, _viewWidth *2.0, _viewHeight*0.4, _viewWidth * 0.8, -_viewHeight*0.4 );
+    
+    //Prepare the animation - we use keyframe animation for animations of this complexity
+    CAKeyframeAnimation *pathAnimation = [CAKeyframeAnimation animationWithKeyPath:@"position"];
+    //Set some variables on the animation
+    pathAnimation.calculationMode = kCAAnimationPaced;
+    //We want the animation to persist - not so important in this case - but kept for clarity
+    //If we animated something from left to right - and we wanted it to stay in the new position,
+    //then we would need these parameters
+    pathAnimation.fillMode = kCAFillModeForwards;
+    pathAnimation.removedOnCompletion = YES;
+    pathAnimation.duration = 6.0f;
+    //Lets loop continuously for the demonstration
+    pathAnimation.repeatCount = 0;
+    
+    //Now we have the path, we tell the animation we want to use this path - then we release the path
+    pathAnimation.path = curvedPath;
+    pathAnimation.rotationMode = kCAAnimationRotateAuto;
+    
+    centerline.path = curvedPath ;
+    centerline.strokeColor = [UIColor whiteColor].CGColor;
+    centerline.fillColor = [UIColor clearColor].CGColor;
+    centerline.lineWidth = 3.0;
+    centerline.lineDashPattern = [NSArray arrayWithObjects:[NSNumber numberWithInt:10], [NSNumber numberWithInt:8], nil];
+    [self.layer addSublayer:centerline];
+    [self.layer addSublayer:flyImage];
+    [flyImage addAnimation:pathAnimation forKey:@"animationLinePath"];
+    CGPathRelease(curvedPath);
 //    }completion:^(BOOL finished) {
     
     [UIView animateWithDuration:1.8f delay:0.0f options:UIViewAnimationOptionCurveEaseInOut animations:^{
@@ -525,8 +541,8 @@ static NSString * IMAGE_ANIMATION = @"airplane.png"; //@"carmodel.png"
         _stick.alpha = 0;
     }completion:^(BOOL finished) {
         [_howItWorksViewDelegate gotoNextPage];
-        [car removeAllAnimations];
-        [car removeFromSuperlayer];
+        [flyImage removeAllAnimations];
+        [flyImage removeFromSuperlayer];
         [centerline removeFromSuperlayer];
     }];
 
@@ -536,24 +552,24 @@ static NSString * IMAGE_ANIMATION = @"airplane.png"; //@"carmodel.png"
  * Show the view in animation
  */
 -(void)showView {
-    
-    // set frame for icon
-    _valuePropIcon.frame = CGRectMake(-self.viewWidth *2, self.viewHeight*0.447, 145, 145);
-    if ([Device isIphone4])
-        _valuePropIcon.frame = CGRectMake(-self.viewWidth *2, self.viewHeight * 0.4, self.viewWidth *0.3, self.viewHeight *0.22);
-    //            frame = CGRectMake(self.viewWidth *0.1, self.viewHeight*0.4, 85, 85);
+        // set frame for icon
     if ([Device isIphone5] )
         _valuePropIcon.frame = CGRectMake(-self.viewWidth *2, self.viewHeight * 0.4, self.viewWidth *0.33, self.viewHeight *0.22);
-
+    else if ([Device isIphone4])
+        _valuePropIcon.frame = CGRectMake(- self.viewWidth *2, self.viewHeight * 0.4, self.viewWidth *0.3, self.viewHeight *0.22);
+    else
+        _valuePropIcon.frame = CGRectMake(-self.viewWidth *2, self.viewHeight*0.447, 145, 145);
+    
     [UIView animateWithDuration:1 delay:0.0f options:UIViewAnimationOptionTransitionFlipFromLeft animations:^{
-        _valuePropIcon.frame = CGRectMake(self.viewWidth *0.07, self.viewHeight*0.447, 145, 145);
-        if ([Device isIphone4])
-            _valuePropIcon.frame = CGRectMake(self.viewWidth *0.07, self.viewHeight * 0.4, self.viewWidth *0.3, self.viewHeight *0.22);
-        //            frame = CGRectMake(self.viewWidth *0.1, self.viewHeight*0.4, 85, 85);
         
-        if ([Device isIphone5] )  {
+        if ([Device isIphone5] )
             _valuePropIcon.frame = CGRectMake(self.viewWidth *0.07, self.viewHeight * 0.4, self.viewWidth *0.33, self.viewHeight *0.22);
-        }
+        
+        else if ([Device isIphone4])
+            _valuePropIcon.frame = CGRectMake(self.viewWidth *0.07, self.viewHeight * 0.4, self.viewWidth *0.3, self.viewHeight *0.22);
+        else
+            _valuePropIcon.frame = CGRectMake(self.viewWidth *0.07, self.viewHeight*0.447, 145, 145);
+        
         _valuePropIcon.alpha = 1;
     } completion:^(BOOL finished) {
         if (finished) {
@@ -568,16 +584,15 @@ static NSString * IMAGE_ANIMATION = @"airplane.png"; //@"carmodel.png"
                         [UIView animateWithDuration:1.0 delay:0.0f options:UIViewAnimationOptionTransitionCurlUp animations:^{
                             _valuePropText3.alpha = 1;
                         }completion:^(BOOL finished) {
-                            if (finished)
+                            if (finished) {
                                 [self addAnimationForScreen2];
+                            }
                         }];
-                     }
-                    }];
+                      }
+                   }];
                 }
             }];
-                    
         }
-    
     }];
 }
 
@@ -597,7 +612,6 @@ static NSString * IMAGE_ANIMATION = @"airplane.png"; //@"carmodel.png"
     self.valueIntroMagpieText1.alpha = 0;
     self.valueIntroMagpieText2.alpha = 0;
     
-
     [self.valuePropText1.layer removeAllAnimations];
     [self.valuePropText2.layer removeAllAnimations];
     [self.valuePropText3.layer removeAllAnimations];
@@ -609,8 +623,6 @@ static NSString * IMAGE_ANIMATION = @"airplane.png"; //@"carmodel.png"
     [self.doorImage.layer removeAllAnimations];
     [self.valueIntroMagpieText1.layer removeAllAnimations];
     [self.valueIntroMagpieText2.layer removeAllAnimations];
-    
-
 }
 
 
