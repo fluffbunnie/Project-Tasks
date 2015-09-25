@@ -18,7 +18,7 @@ static NSString * VALUE_BACKGROUND_SCREEN = @"Background_Screen_2";
 static NSString * VALUE_SANFRANCISCO = @"San_Francisco";
 static NSString * VALUE_BOARD_IMAGE = @"board";
 static NSString * VALUE_LABEL_IMAGE = @"Feburary_2015_label";
-static NSString * ANIMATION_IMAGE = @"airplane.png"; //@"carmodel.png"
+static NSString * ANIMATION_IMAGE = @"airplane.png";//@"avion.png"; //@"carmodel.png" //@"air_cartoon.png";
 
 @interface HowItWorksSecondView()
 @property (nonatomic, assign) CGFloat viewWidth;
@@ -218,7 +218,7 @@ static NSString * ANIMATION_IMAGE = @"airplane.png"; //@"carmodel.png"
     self.viewHeight = [UIScreen mainScreen].bounds.size.height;
     self = [super initWithFrame:CGRectMake(self.viewWidth, 0, self.viewWidth, self.viewHeight)];
     if (self) {
-        [self addSubview:[self valueBackgroundImageView]];
+//        [self addSubview:[self valueBackgroundImageView]];
         //animation pathline
         [self addSubview:[self storyFirstLine]];
         [self addSubview:[self storySecondLine]];

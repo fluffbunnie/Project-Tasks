@@ -453,6 +453,7 @@
 		3EF9BB451B02DB7C004B1F71 /* MyPlaceLocationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EF9BB441B02DB7C004B1F71 /* MyPlaceLocationViewController.m */; };
 		3EF9BB481B032068004B1F71 /* MyPlaceInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EF9BB471B032068004B1F71 /* MyPlaceInfoViewController.m */; };
 		4A4D9B191BA658380062C878 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4A4D9B181BA658380062C878 /* Images.xcassets */; };
+		4A505B261BAFE622001797F4 /* HowItWorksElevenView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A505B251BAFE622001797F4 /* HowItWorksElevenView.m */; settings = {ASSET_TAGS = (); }; };
 		FA52EF8B1BA3DD4600C1EFA7 /* HowItWorksFirstView.m in Sources */ = {isa = PBXBuildFile; fileRef = FA52EF801BA3DD4600C1EFA7 /* HowItWorksFirstView.m */; };
 		FA52EF8E1BA3DD4600C1EFA7 /* HowItWorksSecondView.m in Sources */ = {isa = PBXBuildFile; fileRef = FA52EF861BA3DD4600C1EFA7 /* HowItWorksSecondView.m */; };
 		FA52EF8F1BA3DD4600C1EFA7 /* HowItWorksThirdView.m in Sources */ = {isa = PBXBuildFile; fileRef = FA52EF881BA3DD4600C1EFA7 /* HowItWorksThirdView.m */; };
@@ -1341,6 +1342,8 @@
 		3EF9BB461B032068004B1F71 /* MyPlaceInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MyPlaceInfoViewController.h; path = "ViewControllers/Post-Login/MyPlace/MyPlaceDetail/MyPlaceInfoViewController.h"; sourceTree = "<group>"; };
 		3EF9BB471B032068004B1F71 /* MyPlaceInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MyPlaceInfoViewController.m; path = "ViewControllers/Post-Login/MyPlace/MyPlaceDetail/MyPlaceInfoViewController.m"; sourceTree = "<group>"; };
 		4A4D9B181BA658380062C878 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		4A505B241BAFE622001797F4 /* HowItWorksElevenView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HowItWorksElevenView.h; sourceTree = "<group>"; };
+		4A505B251BAFE622001797F4 /* HowItWorksElevenView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HowItWorksElevenView.m; sourceTree = "<group>"; };
 		FA52EF7F1BA3DD4600C1EFA7 /* HowItWorksFirstView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HowItWorksFirstView.h; sourceTree = "<group>"; };
 		FA52EF801BA3DD4600C1EFA7 /* HowItWorksFirstView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HowItWorksFirstView.m; sourceTree = "<group>"; };
 		FA52EF851BA3DD4600C1EFA7 /* HowItWorksSecondView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HowItWorksSecondView.h; sourceTree = "<group>"; };
@@ -2992,6 +2995,8 @@
 		FA52EF7E1BA3DD4600C1EFA7 /* HowItWorks */ = {
 			isa = PBXGroup;
 			children = (
+				4A505B241BAFE622001797F4 /* HowItWorksElevenView.h */,
+				4A505B251BAFE622001797F4 /* HowItWorksElevenView.m */,
 				FA52EF7F1BA3DD4600C1EFA7 /* HowItWorksFirstView.h */,
 				FA52EF801BA3DD4600C1EFA7 /* HowItWorksFirstView.m */,
 				FA52EF851BA3DD4600C1EFA7 /* HowItWorksSecondView.h */,
@@ -3533,6 +3538,7 @@
 				3EE4AD601B84F47C0069B67C /* InvitationStatusWithPushNotificationView.m in Sources */,
 				3E665CE81B97DAF300F7BA43 /* PasswordResetLoadingViewController.m in Sources */,
 				3E06BBD91B1C8C6400D2F266 /* UIWebImageView.m in Sources */,
+				4A505B261BAFE622001797F4 /* HowItWorksElevenView.m in Sources */,
 				3EC801211B8EC39500FF4C18 /* BranchSetIdentityRequest.m in Sources */,
 				3E06BAE61B18E20100D2F266 /* HostPopup.m in Sources */,
 				3E73A1421AE883A70022C5A2 /* AFHTTPSessionManager.m in Sources */,

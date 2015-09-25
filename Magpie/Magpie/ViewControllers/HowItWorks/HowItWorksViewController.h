@@ -13,6 +13,8 @@
 -(void) gotoNextPage;
 -(void) repeatSlideshow;
 -(void) showRepeatButton;
+-(void) closeSlideShow;
+
 @end
 
 @interface HowItWorksViewController : UIViewController <UIScrollViewDelegate, TTTAttributedLabelDelegate, HowItWorkViewDelegate>

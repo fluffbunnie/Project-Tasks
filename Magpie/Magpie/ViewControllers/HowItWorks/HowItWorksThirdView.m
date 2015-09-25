@@ -243,7 +243,7 @@ static NSString * VALUE_KAT_AVATAR_IMAGE = @"Kat_Avatar_221";
 
 
 -(void) initScreen1 {
-    [self addSubview:[self valueBackgroundImageView]];
+//    [self addSubview:[self valueBackgroundImageView]];
     
     [self addSubview:[self valueTitleText1]];
     [self addSubview:[self valueOptionRequestImage1]];
@@ -775,7 +775,6 @@ static NSString * VALUE_KAT_AVATAR_IMAGE = @"Kat_Avatar_221";
     [self addSubview:[self valueDaniAvatarImage]];
     
     [self addSubview:[self valueHouseKatImage]];
-
 }
 
 #pragma mark - public method
@@ -1026,7 +1025,6 @@ static NSString * VALUE_KAT_AVATAR_IMAGE = @"Kat_Avatar_221";
  */
 
 -(void) animatedScreen6 {
-
     
     if ([Device isIphone5] )  {
         _valueKatAvatar.frame = CGRectMake(- self.viewWidth *2.12, self.viewHeight * 0.266, self.viewWidth *0.35, self.viewHeight *0.2);
@@ -1078,15 +1076,14 @@ static NSString * VALUE_KAT_AVATAR_IMAGE = @"Kat_Avatar_221";
                         if (finished) {
                 //            show button sign up
 //                            [self.howItWorksViewDelegate repeatSlideshow];
-                            [_howItWorksViewDelegate showRepeatButton];
+//                            [_howItWorksViewDelegate showRepeatButton];
+                            [_howItWorksViewDelegate gotoNextPage];
                         }
                     }];
                 }
             }];
-            
         }
     }];
-    
 }
 
 /**

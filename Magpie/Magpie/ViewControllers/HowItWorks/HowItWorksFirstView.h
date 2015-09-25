@@ -7,7 +7,6 @@
 //
 
 #import <UIKit/UIKit.h>
-//#import "MFLHintLabel.h"
 #import "HowItWorksViewController.h"
 @interface HowItWorksFirstView : UIView
 @property (nonatomic, weak) id<HowItWorkViewDelegate> howItWorksViewDelegate;

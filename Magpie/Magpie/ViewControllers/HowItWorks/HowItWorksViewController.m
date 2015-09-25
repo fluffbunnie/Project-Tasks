@@ -1,5 +1,5 @@
 //
-//  ValuePropViewController
+//  HowItWorksViewController
 //  Magpie
 //
 //  Created by minh thao nguyen on 5/3/15.
@@ -15,11 +15,19 @@
 #import "HowItWorksFirstView.h"
 #import "HowItWorksSecondView.h"
 #import "HowItWorksThirdView.h"
+#import "HowItWorksElevenView.h"
 #import "AppDelegate.h"
 #import "SignupRequestInvitationCodeViewController.h"
 #import "SignUpWithInvitationViewController.h"
 
 static NSString * const REPEAT_BUTTON_STRING = @"Repeat";
+
+static NSString * VALUE_BACKGROUND_SCREEN_1 = @"Background_Screen_1";
+static NSString * VALUE_BACKGROUND_SCREEN_2 = @"Background_Screen_2";
+static NSString * VALUE_BACKGROUND_SCREEN_3 = @"Background_screen_3";
+static NSString * VALUE_BACKGROUND_SCREEN_4 = @"Background_screen_4";
+
+static NSString * VALUE_CANCEL_BUTTON = @"btn_cancel";
 
 static int const TOTAL_NUMBER_PAGES = 3;
 
@@ -31,9 +39,11 @@ static int const TOTAL_NUMBER_PAGES = 3;
 @property (nonatomic, assign) CGFloat screenHeight;
 
 @property (nonatomic, strong) UIScrollView *contentScrollView;
-@property (nonatomic, strong) HowItWorksFirstView *firstValueProp;
-@property (nonatomic, strong) HowItWorksSecondView *secondValueProp;
-@property (nonatomic, strong) HowItWorksThirdView *thirdValueProp;
+@property (nonatomic, strong) HowItWorksFirstView *firstHowItWorks;
+@property (nonatomic, strong) HowItWorksSecondView *secondHowItWorks;
+@property (nonatomic, strong) HowItWorksThirdView *thirdHowItWorks;
+
+@property (nonatomic, strong) HowItWorksElevenView *eleventHowItWorks;
 
 @property (nonatomic, strong) UIPageControl *pageControl;
 @property (nonatomic, strong) TTTAttributedLabel *loginLabel;
@@ -65,35 +75,55 @@ static int const TOTAL_NUMBER_PAGES = 3;
     }
     return _contentScrollView;
 }
+/**
+ * Set BackgroundImage for scroll view
+ */
+
+-(void) setbackgroundImage:(NSString *)imageName {
+    _contentScrollView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:imageName]];
+    _contentScrollView.contentMode = UIViewContentModeScaleToFill;//UIViewContentModeScaleAspectFill;UIViewContentModeScaleToFill;UIViewContentModeScaleAspectFit
+}
+
+#pragma Init All HowItWorks View
 
 /**
  * Lazily init the first value prop
- * @return ValuePropFirstView
+ * @return HowItWorksFirstView
  */
--(HowItWorksFirstView *)firstValueProp {
-    if (_firstValueProp == nil) _firstValueProp = [[HowItWorksFirstView alloc] init];
-    _firstValueProp.howItWorksViewDelegate = self;
-    return _firstValueProp;
+-(HowItWorksFirstView *)firstHowItWorks {
+    if (_firstHowItWorks == nil) _firstHowItWorks = [[HowItWorksFirstView alloc] init];
+    _firstHowItWorks.howItWorksViewDelegate = self;
+    return _firstHowItWorks;
 }
 
 /**
  * Lazily init the second value prop
- * @return ValuePropSecondView
+ * @return HowItWorksSecondView
  */
--(HowItWorksSecondView *)secondValueProp {
-    if (_secondValueProp == nil) _secondValueProp = [[HowItWorksSecondView alloc] init];
-    _secondValueProp.howItWorksViewDelegate = self;
-    return _secondValueProp;
+-(HowItWorksSecondView *)secondHowItWorks {
+    if (_secondHowItWorks == nil) _secondHowItWorks = [[HowItWorksSecondView alloc] init];
+    _secondHowItWorks.howItWorksViewDelegate = self;
+    return _secondHowItWorks;
 }
 
 /**
  * Lazily init the third value prop
- * @return ValuePropThirdView
+ * @return HowItWorksThirdView
  */
--(HowItWorksThirdView *)thirdValueProp {
-    if (_thirdValueProp == nil) _thirdValueProp = [[HowItWorksThirdView alloc] init];
-    _thirdValueProp.howItWorksViewDelegate = self;
-    return _thirdValueProp;
+-(HowItWorksThirdView *)thirdHowItWorks {
+    if (_thirdHowItWorks == nil) _thirdHowItWorks = [[HowItWorksThirdView alloc] init];
+    _thirdHowItWorks.howItWorksViewDelegate = self;
+    return _thirdHowItWorks;
+}
+
+/**
+ * Lazily init the Eleven value prop
+ * @return HowItWorksElevenView
+ */
+-(HowItWorksElevenView *)elevenHowItWorks {
+    if (_eleventHowItWorks == nil) _eleventHowItWorks = [[HowItWorksElevenView alloc] init];
+    _eleventHowItWorks.howItWorksViewDelegate = self;
+    return _eleventHowItWorks;
 }
 
 /**
@@ -118,7 +148,7 @@ static int const TOTAL_NUMBER_PAGES = 3;
 -(UIButton *)cancelButton {
     if (_cancelButton == nil) {
         _cancelButton = [[UIButton alloc] initWithFrame:CGRectMake(self.screenWidth *0.92, 5, 24, 24)];
-        [_cancelButton setImage:[UIImage imageNamed:@"btn_cancel"] forState:UIControlStateNormal];
+        [_cancelButton setImage:[UIImage imageNamed:VALUE_CANCEL_BUTTON] forState:UIControlStateNormal];
         [_cancelButton addTarget:self action:@selector(cancelButtonClick) forControlEvents:UIControlEventTouchUpInside];
     }
     return _cancelButton;
@@ -157,9 +187,12 @@ static int const TOTAL_NUMBER_PAGES = 3;
     self.currentPage = 0;
     
     [self.view addSubview:[self contentScrollView]];
-    [self.contentScrollView addSubview:[self firstValueProp]];
-    [self.contentScrollView addSubview:[self secondValueProp]];
-    [self.contentScrollView addSubview:[self thirdValueProp]];
+    
+    [self.contentScrollView addSubview:[self firstHowItWorks]];
+    [self.contentScrollView addSubview:[self secondHowItWorks]];
+    [self.contentScrollView addSubview:[self thirdHowItWorks]];
+    
+//    [self.contentScrollView addSubview:[self elevenHowItWorks]];
 //    [self.view addSubview:[self pageControl]];
 //    [self.view addSubview:[self repeatButton]];
     [self.view addSubview:[self cancelButton]];
@@ -197,7 +230,7 @@ static int const TOTAL_NUMBER_PAGES = 3;
     NSDate *time = [[NSDate alloc] init];
     NSTimeInterval endTime = [time timeIntervalSince1970];
     NSTimeInterval timeInTutorial = endTime - self.startTime;
-    [[Mixpanel sharedInstance] track:@"Tutorial Time" properties:@{@"duration":[NSString stringWithFormat:@"%.0f", timeInTutorial]}];
+    [[Mixpanel sharedInstance] track:@"How It Works Time" properties:@{@"duration":[NSString stringWithFormat:@"%.0f", timeInTutorial]}];
     
     LoginViewController *loginViewController = [[LoginViewController alloc] init];
     [self.navigationController pushViewController:loginViewController animated:YES];
@@ -216,15 +249,6 @@ static int const TOTAL_NUMBER_PAGES = 3;
  */
 -(void)repeatButtonClick {
     [self repeatSlideshow];
-}
-
-/**
- * SignupView delegate
- * Go to the sign up code screen
- */
--(void)goToSignup {
-    SignUpWithInvitationViewController * signupWithInvitationViewController = [[SignUpWithInvitationViewController alloc] init];
-    [self.navigationController pushViewController:signupWithInvitationViewController animated:YES];
 }
 
 #pragma mark - scroll view delegate
@@ -258,10 +282,11 @@ static int const TOTAL_NUMBER_PAGES = 3;
  * @param int
  */
 -(void)stopAnimationAtPage:(int)page {
-    if (page == 0) [self.firstValueProp hideView];
-    if (page == 1) [self.secondValueProp hideView];
-    if (page == 2) {
-        [self.thirdValueProp hideView];
+    if (page == 0) [self.firstHowItWorks hideView];
+    if (page == 1) [self.secondHowItWorks hideView];
+    if (page == 2) [self.thirdHowItWorks hideView];
+    if (page == 3) {
+        [self.eleventHowItWorks hideView];
         _repeatButton.alpha = 0;
     }
 }
@@ -271,9 +296,22 @@ static int const TOTAL_NUMBER_PAGES = 3;
  * @param int
  */
 -(void)startAnimationAtPage:(int)page {
-    if (page == 0) [self.firstValueProp showView];
-    if (page == 1) [self.secondValueProp showView];
-    if (page == 2) [self.thirdValueProp showView];
+    if (page == 0)  {
+        [self setbackgroundImage:VALUE_BACKGROUND_SCREEN_1];
+        [self.firstHowItWorks showView];
+    }
+    else if (page == 1) {
+        [self setbackgroundImage:VALUE_BACKGROUND_SCREEN_2];
+        [self.secondHowItWorks showView];
+    }
+    else if (page == 2) {
+//        [self setbackgroundImage:VALUE_BACKGROUND_SCREEN_2];
+        [self.thirdHowItWorks showView];
+    }
+    else if (page == 3) {
+        [self setbackgroundImage:VALUE_BACKGROUND_SCREEN_4];
+        [self.eleventHowItWorks showView];
+    }
 }
 
 #pragma GotoNextPage and Repeat Slideshow Delegate
@@ -316,6 +354,15 @@ static int const TOTAL_NUMBER_PAGES = 3;
 
 -(void) showRepeatButton {
     _repeatButton.alpha = 1;
+}
+
+/**
+ * close viewcontroller delegate
+ * Go to the sign up code screen
+ */
+-(void)closeSlideShow {
+    SignUpWithInvitationViewController * signupWithInvitationViewController = [[SignUpWithInvitationViewController alloc] init];
+    [self.navigationController pushViewController:signupWithInvitationViewController animated:YES];
 }
 
 #pragma appwillbecomeActive or AppDidEnterBackground

@@ -11,7 +11,6 @@
 #import "TTTAttributedLabel.h"
 #import "UIImage+ImageEffects.h"
 
-static NSString * VALUE_PROP_SCREEN = @"Background_1";
 static NSString * VALUE_PROP_ICON = @"Dani_Avatar_291";
 
 static NSString * AVATAR1_IMAGE = @"avatar1";
@@ -29,7 +28,7 @@ static NSString * SECOND_INTRODUCE_LINE_TEXT = @"She hosted some cool travelers 
 
 static NSString * FONTNAME = @"AvenirNext-Medium";
 
-static NSString * IMAGE_ANIMATION = @"airplane.png"; //@"carmodel.png"
+static NSString * IMAGE_ANIMATION =@"airplane.png";//@"avion.png"; //@"carmodel.png" //@"air_cartoon.png";
 
 @interface HowItWorksFirstView()
 
@@ -60,15 +59,15 @@ static NSString * IMAGE_ANIMATION = @"airplane.png"; //@"carmodel.png"
  * Lazily init the value prop image
  * @return UIImageView
  */
--(UIImageView *)valuePropImageView {
-    if (_valuePropImageView == nil) {
-        _valuePropImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, self.viewWidth, self.viewHeight)];
-        _valuePropImageView.contentMode = UIViewContentModeScaleAspectFill;
-        _valuePropImageView.backgroundColor = [UIColor whiteColor];
-        _valuePropImageView.image = [UIImage imageNamed:VALUE_PROP_SCREEN];
-    }
-    return _valuePropImageView;
-}
+//-(UIImageView *)valuePropImageView {
+//    if (_valuePropImageView == nil) {
+//        _valuePropImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, self.viewWidth, self.viewHeight)];
+//        _valuePropImageView.contentMode = UIViewContentModeScaleAspectFill;
+//        _valuePropImageView.backgroundColor = [UIColor whiteColor];
+//        _valuePropImageView.image = [UIImage imageNamed:Background_Screen_1];
+//    }
+//    return _valuePropImageView;
+//}
 
 /**
  * Lazily init the value prop icon
@@ -389,7 +388,7 @@ static NSString * IMAGE_ANIMATION = @"airplane.png"; //@"carmodel.png"
     self.viewHeight = [UIScreen mainScreen].bounds.size.height;
     self = [super initWithFrame:CGRectMake(0, 0, self.viewWidth, self.viewHeight)];
     if (self) {
-        [self addSubview:[self valuePropImageView]];
+//        [self addSubview:[self valuePropImageView]];
         [self addSubview:[self valuePropIcon]];
         [self addDesciptionAboutDani];
         [self addIntroduceAboutMagpie];
