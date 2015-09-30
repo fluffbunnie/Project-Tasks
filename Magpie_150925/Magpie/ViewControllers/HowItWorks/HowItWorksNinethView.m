@@ -208,7 +208,7 @@ static NSString * VALUE_KAT_AVATAR_IMAGE = @"Kat_Avatar_221";
             else
                 _valueDaniAvatar.frame = CGRectMake(self.viewWidth * 2.58, self.viewHeight * 0.266, self.viewWidth *0.3, self.viewHeight *0.2);
             
-            [UIView animateWithDuration:0.8f delay:0.2f options:UIViewAnimationOptionCurveLinear animations:^{
+            [UIView animateWithDuration:1.0f delay:0.0f options:UIViewAnimationOptionCurveLinear animations:^{
                 _valueDaniAvatar.alpha = 1;
                 if ([Device isIphone5] )  {
                     _valueDaniAvatar.frame = CGRectMake(self.viewWidth *0.57, self.viewHeight * 0.266, self.viewWidth *0.29, self.viewHeight *0.19);
@@ -222,7 +222,7 @@ static NSString * VALUE_KAT_AVATAR_IMAGE = @"Kat_Avatar_221";
                 
             } completion:^(BOOL finished) {
                 if (finished) {
-                    [UIView animateWithDuration:0.8f delay:0.2f options:UIViewAnimationOptionOverrideInheritedCurve animations:^{
+                    [UIView animateWithDuration:1.0f delay:0.0f options:UIViewAnimationOptionOverrideInheritedCurve animations:^{
                         _valueHouseImage.alpha = 1;
                     } completion:^(BOOL finished) {
                         if (finished) {

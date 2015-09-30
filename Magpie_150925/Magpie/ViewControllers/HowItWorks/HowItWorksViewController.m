@@ -103,7 +103,7 @@ static NSString * VALUE_BACKGROUND_SCREEN_4 = @"Background_Screen_4";
     
     _valueBackgroundScreen.image = [UIImage imageNamed:imageName];
     [_valueBackgroundScreen sizeToFit];
-    NSLog(@"size : %@ frame :%@", NSStringFromCGSize(_valueBackgroundScreen.image.size), NSStringFromCGRect(_valueBackgroundScreen.frame));
+//    NSLog(@"size : %@ frame :%@", NSStringFromCGSize(_valueBackgroundScreen.image.size), NSStringFromCGRect(_valueBackgroundScreen.frame));
     //_screenWidth/imageBackground.size.width;
     _contentScrollView.backgroundColor = [UIColor colorWithPatternImage:_valueBackgroundScreen.image];//[UIImage imageNamed:imageName]];
     _contentScrollView.contentMode = UIViewContentModeScaleAspectFit;//UIViewContentModeScaleAspectFill;UIViewContentModeScaleToFill;UIViewContentModeScaleAspectFit
@@ -576,11 +576,11 @@ static NSString * VALUE_BACKGROUND_SCREEN_4 = @"Background_Screen_4";
             [_firstValueHowItWorks stopAnmationAndShowView];
         }
         if (page == 1)  {
-            [self setbackgroundImage:VALUE_BACKGROUND_SCREEN_1];
+//            [self setbackgroundImage:VALUE_BACKGROUND_SCREEN_1];
             [_secondValueHowItWorks stopAnmationAndShowView];
         }
         if (page == 2) {
-            [self setbackgroundImage:VALUE_BACKGROUND_SCREEN_2];
+//            [self setbackgroundImage:VALUE_BACKGROUND_SCREEN_2];
             [_thirdValueHowItWorks stopAnmationAndShowView];
         }
         if (page == 3) [_fourthValueHowItWorks stopAnmationAndShowView];
@@ -588,15 +588,15 @@ static NSString * VALUE_BACKGROUND_SCREEN_4 = @"Background_Screen_4";
         if (page == 5) [_sixthValueHowItWorks stopAnmationAndShowView];
         if (page == 6) [_seventhValueHowItWorks stopAnmationAndShowView];
         if (page == 7) {
-            [self setbackgroundImage:VALUE_BACKGROUND_SCREEN_2];
+//            [self setbackgroundImage:VALUE_BACKGROUND_SCREEN_2];
             [_eighthValueHowValueItWorks stopAnmationAndShowView];
         }
         if (page == 8) {
-            [self setbackgroundImage:VALUE_BACKGROUND_SCREEN_3];
+//            [self setbackgroundImage:VALUE_BACKGROUND_SCREEN_3];
             [_ninethValueHowItWorks stopAnmationAndShowView];
         }
         if (page == 9) {
-            [self setbackgroundImage:VALUE_BACKGROUND_SCREEN_4];
+//            [self setbackgroundImage:VALUE_BACKGROUND_SCREEN_4];
             [_tenthValueHowItWorks stopAnmationAndShowView];
         }
     } completion:^(BOOL finished) {

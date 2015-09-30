@@ -371,7 +371,7 @@ static NSString * IMAGE_ANIMATION = @"airplane.png";
     //then we would need these parameters
     pathAnimation.fillMode = kCAFillModeForwards;
     pathAnimation.removedOnCompletion = YES;
-    pathAnimation.duration = 3;
+    pathAnimation.duration = 4;
     //Lets loop continuously for the demonstration
     pathAnimation.repeatCount = 0;
     
@@ -389,7 +389,7 @@ static NSString * IMAGE_ANIMATION = @"airplane.png";
     [flyImage addAnimation:pathAnimation forKey:@"animationLinePath"];
     CGPathRelease(curvedPath);
     
-    [UIView animateWithDuration:0.9 delay:0.0f options:UIViewAnimationOptionCurveEaseInOut animations:^{
+    [UIView animateWithDuration:1.0 delay:0.0f options:UIViewAnimationOptionCurveEaseInOut animations:^{
         _stick.alpha = 0;
     }completion:^(BOOL finished) {
         if (_animationStatus == None) {
